@@ -21,7 +21,7 @@ set mouse=a
 set undofile
 set hidden
 set incsearch
-set nohlsearch
+"set nohlsearch
 set spell
 set ignorecase
 set clipboard=unnamedplus
@@ -79,6 +79,8 @@ noremap <C-Left>	<C-w>H
 noremap <C-Down>	<C-w>J
 noremap <C-Up>		<C-w>K
 noremap <C-Right>	<C-w>L
+
+autocmd WinNew * wincmd L
 
 "
 " Terminal Mode
