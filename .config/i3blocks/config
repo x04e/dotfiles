@@ -1,0 +1,153 @@
+# Custom i3blocks config. Most sections are scripts from ~/scripts/i3blocks/
+background=#212034
+color=#dedede
+align=center
+separator=false
+separator_block_width=0
+border_top=0
+border_left=0
+border_bottom=0
+border_right=0
+
+# When i3 starts, show the status bar for five seconds, then hide it
+[hide_i3blocks]
+command=sleep 5 && i3-msg bar hidden_state toggle > /dev/null
+interval=once
+
+### Prompt Colours - Use :ColorToggle to show in vim
+# #005f5f #014d4d
+# #00875f #017553
+# #ffaf5f #f0a356
+# #ffd75f #edc755
+# #ffff5f #f2f25c
+# OneDark Grey
+# #3a404d
+
+### Abstract Background Colours
+# #212034 #1f1e30
+# #34344d #303046
+# #e56551 #dc614d
+# #f0b426 #e8ae25
+# #ffcf3b #fbcb39
+
+
+#-------------#
+
+[firefox_app]
+full_text=" <span size=\"x-large\"></span> "
+markup=pango
+command=[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec firefox 2>&1 > /dev/null;
+interval=once
+
+[terminal_app]
+full_text=" <span size=\"x-large\"></span> "
+command=[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec urxvt 2>&1 > /dev/null;
+markup=pango
+interval=once
+
+[vpn_app]
+full_text=" <span size=\"x-large\">旅</span> "
+command=[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec pia-client 2>&1 > /dev/null;
+markup=pango
+interval=once
+
+#-------------#
+[separator]
+full_text=
+#-------------#
+
+## System Information (volume, CPU/MEM usage, temperature)
+[packages_icon]
+full_text=" <span size=\"x-large\"></span> "
+command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_updates 2>&1 > /dev/null;
+markup=pango
+interval=once
+
+[packages]
+command=~/scripts/i3blocks/i3b_updates
+interval=3600 # hourly
+signal=11
+
+#-------------#
+[separator]
+full_text=
+#-------------#
+
+[volume_icon]
+full_text=" <span size=\"x-large\"></span> "
+command=[[ -z "${BLOCK_BUTTON}" ]] || pavucontrol;
+markup=pango
+interval=once
+
+[volume]
+command=~/scripts/i3blocks/i3b_volume
+interval=once
+signal=10
+
+# Subscribe to PulseAudio events and signal the volume command on changes
+[volume_update]
+command=~/scripts/i3blocks/i3b_volume_signal
+interval=once
+
+#-------------#
+[separator]
+full_text=
+#-------------#
+
+[cpu_icon]
+full_text=" <span size=\"x-large\"></span> "
+command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_cpu 2>&1 > /dev/null;
+markup=pango
+interval=once
+
+[cpu_used]
+command=~/scripts/i3blocks/i3b_cpu
+interval=5
+
+[memory_icon]
+full_text=" <span size=\"x-large\"></span> "
+command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_memory 2>&1 > /dev/null;
+markup=pango
+interval=once
+
+[memory_used]
+command=~/scripts/i3blocks/i3b_memory
+interval=5
+
+#-------------#
+[separator]
+full_text=
+#-------------#
+
+[weather]
+command=~/scripts/i3blocks/i3b_weather
+interval=3600 #hourly
+
+[separator]
+full_text=
+
+[time_icon]
+full_text=" <span size=\"x-large\"></span> "
+markup=pango
+
+[time]
+command=echo "$(date +'%F %T') "
+interval=1
+
+#-------------#
+[separator]
+full_text=
+#-------------#
+
+[power_options]
+full_text=" <span size=\"x-large\">⏻</span> "
+markup=pango
+#command=bash ~/scripts/powermgmt
+# setsid runs a program in a new session, separate from the i3bar process
+# i3bar will be suspended when hidden, meaning this script will stop unless the bar is visible
+command=(setsid ~/scripts/powermgmt &)
+
+#-------------#
+[separator]
+full_text=
+#-------------#

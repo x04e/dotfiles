@@ -1,0 +1,269 @@
+# i3 config file (v4)
+###### SETUP ##########################
+
+set $ws01 "[1]"
+set $ws02 "[2]"
+set $ws03 "[3]"
+set $ws04 "[4]"
+set $ws05 "[5]"
+set $ws06 "[6]"
+set $ws07 "[7]"
+set $ws08 "[8]"
+set $ws09 "[9]"
+
+font pango:FantasqueSansMono Nerd Font Mono 10
+default_orientation horizontal
+
+# Disable titlebars
+for_window [class="^.*"] border pixel 2
+# Floating applications
+for_window [class="Shutter"] floating enable
+# Floating popup windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="dialog"] floting enable
+for_window [window_role="menu"] floating enable
+for_window [window_role="Organizer"] floating enable #Firefox History, Bookmarks, etc.
+for_window [class="Yad"] floating enable
+#for_window [class="^Steam.*"] floating enable
+#for_window [title="Steam"] floating disable
+#for_window [class="Minecraft Launcher"] floating enable
+for_window [class="PlayOnLinux"] floating enable
+for_window [class="^PlayOnLinux$"] floating disable
+# Note comma to set border and move container simultaneously. Then semicolon to switch workspace afterwards
+for_window [class="steam_app_*"] border pixel 0, move container to workspace $ws09; workspace $ws09
+#for_window [class="^Minecraft [0-9].*"] border pixel 0, move container to workspace $ws09; workspace $ws09
+# Intellij
+for_window [title="win0"] floating enable
+
+# gaps - set to 0, but gaps are used in Zen mode ($mod+/z)
+gaps inner 0
+gaps outer 0
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up l
+set $down k
+set $left j
+set $right semicolon
+set $mod Mod4
+floating_modifier $mod
+set $refresh_i3status killall -SIGUSR1 i3blocks
+
+# Set keyboard layout and other basic keyboard settings
+exec --no-startup-id setxkbmap -layout ie -option terminate:ctrl_alt_bksp
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+### Prompt Colours - Use :ColorToggle to show in vim
+# #005f5f
+# #00875f
+# #ffaf5f
+# #ffd75f
+# #ffff5f
+# OneDark Grey
+# #3a404d
+
+#						border	  backgrnd 	text      indicator child_border
+client.focused			"#68748c" "#68748c" "#eeeeee" "#000000" "#68748c"
+client.unfocused		"#3a404d" "#3a404d" "#eeeeee" "#000000"	"#3a404d"
+client.focused_inactive "#3a404d" "#3a404d" "#eeeeee" "#000000" "#3a404d"
+client.urgent			"#3a404d" "#3a404d" "#eeeeee" "#000000"	"#3a404d"
+client.placeholder		"#3a404d" "#3a404d" "#eeeeee" "#000000"	"#3a404d"
+
+# Show Scratchpad
+bindsym $mod+e scratchpad show
+
+bar {
+	mode hide
+	hidden_state show
+	modifier $mod
+	status_command i3blocks
+	position bottom
+	strip_workspace_numbers yes
+	font pango:FantasqueSansMono Nerd Font Mono 14
+	i3bar_command i3bar
+	colors {
+		#background "#00000000"
+		background "#212034"
+		#                    border    backgrnd  text
+		focused_workspace	"#212034" "#212034"	"#dedede"
+		active_workspace	"#212034" "#212034"	"#dedede"
+		inactive_workspace	"#212034" "#212034" "#464661"
+		urgent_workspace	"#212034" "#212034" "#464661"
+		binding_mode		"#212034" "#212034" "#464661"
+		
+		#                   border    backgrnd  text
+		#focused_workspace	"#68748c" "#68748c"	"#ffffff"
+		#active_workspace	"#68748c" "#68748c"	"#ffffff"
+		#inactive_workspace	"#3a404d" "#3a404d" "#888888"
+		#urgent_workspace	"#3a404d" "#3a404d" "#888888"
+		#binding_mode		"#3a404d" "#3a404d" "#888888"
+	}
+}
+#######################################
+
+
+###### STARTUP ########################
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# Load programs to specific workspaces
+#                                                   /--- Escape multiple commands to ZSH ----\
+#                                                   '                                        '
+# Start terminal                                                        quote args         end quote args
+# by default              message                 quote        escape   |         escape   | end quote        end
+#                        in quotes               command      backslash |        backslash | command        message
+#                            v                      v                 v v                v v v                 v
+#exec --no-startup-id i3-msg 'workspace $ws03; exec " urxvt -e zsh -c \\"neofetch; zsh -i\\" "; workspace $ws01'
+
+#######################################
+
+
+
+###### BINDINGS #######################
+# Use pactl to adjust volume in PulseAudio.
+#bindsym XF86AudioRaiseVolume exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@   +10% &&    $refresh_i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@   -10% &&    $refresh_i3status
+
+bindsym $mod+g floating toggle
+# Adjust volume in MPC (unlike pactl, this will not go beyond 100% volume)
+bindsym XF86AudioRaiseVolume exec --no-startup-id mpc vol +5 && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id mpc vol -5 && $refresh_i3status
+
+# Mute
+#bindsym XF86AudioMute        exec --no-startup-id   pactl set-sink-mute   @DEFAULT_SINK@   toggle &&  $refresh_i3status
+#bindsym XF86AudioMicMute     exec --no-startup-id   pactl set-source-mute @DEFAULT_SOURCE@ toggle &&  $refresh_i3status
+
+# Play/pause
+bindsym XF86AudioStop        exec --no-startup-id   mpc toggle &&  $refresh_i3status
+bindsym XF86AudioPlay        exec --no-startup-id   mpc toggle &&  $refresh_i3status
+
+### PROGRAM KEYBINDINGS ###
+# Terminal
+bindsym $mod+Return exec $TERMINAL
+# Firefox
+bindsym $mod+f exec firefox
+
+# Program Launcher
+bindsym $mod+d exec runprogram
+
+# Music
+bindsym $mod+m exec music
+
+# File Manager
+bindsym $mod+n exec nautilus
+
+# Shutter Screenshots
+bindsym $mod+p exec shutter
+
+# kill focused window
+bindsym $mod+q kill
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Zen mode toggle
+bindsym $mod+z gaps horizontal current toggle 700
+#bindsym $mod+Shift+z gaps inner current set 5; gaps outer current set 5
+
+# Control vertical/horizontal gap size with they [{  }] keys
+#bindsym $mod+bracketleft          gaps horizontal current plus 2
+#bindsym $mod+Shift+bracketleft    gaps horizontal current minus 2
+#bindsym $mod+bracketright         gaps vertical current plus 2
+#bindsym $mod+Shift+bracketright   gaps vertical current minus 2
+
+# Toggle split orientation
+bindsym $mod+v split toggle
+# Toggle tabbed layout
+bindsym $mod+Shift+v layout toggle tabbed split v
+
+
+# enter fullscreen mode for the focused container
+bindsym $mod+F11 fullscreen toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $ws01
+bindsym $mod+2 workspace $ws02
+bindsym $mod+3 workspace $ws03
+bindsym $mod+4 workspace $ws04
+bindsym $mod+5 workspace $ws05
+bindsym $mod+6 workspace $ws06
+bindsym $mod+7 workspace $ws07
+bindsym $mod+8 workspace $ws08
+bindsym $mod+9 workspace $ws09
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws01; workspace $ws01
+bindsym $mod+Shift+2 move container to workspace $ws02; workspace $ws02
+bindsym $mod+Shift+3 move container to workspace $ws03; workspace $ws03
+bindsym $mod+Shift+4 move container to workspace $ws04; workspace $ws04
+bindsym $mod+Shift+5 move container to workspace $ws05; workspace $ws05
+bindsym $mod+Shift+6 move container to workspace $ws06; workspace $ws06
+bindsym $mod+Shift+7 move container to workspace $ws07; workspace $ws07
+bindsym $mod+Shift+8 move container to workspace $ws08; workspace $ws08
+bindsym $mod+Shift+9 move container to workspace $ws09; workspace $ws09
+
+# move workspaces to other monitors
+bindsym $mod+o move workspace to output left
+
+# reload the configuration file
+bindsym $mod+Shift+r restart
+
+# Shutdown, Restart, Sleep, Lock the machine
+bindsym $mod+Shift+Tab exec dm-tool switch-to-greeter
+bindsym $mod+Tab exec ~/scripts/powermgmt
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym $left  resize shrink width  1 px or 1 ppt
+        bindsym $down  resize grow   height 1 px or 1 ppt
+        bindsym $up    resize shrink height 1 px or 1 ppt
+        bindsym $right resize grow   width  1 px or 1 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left  resize shrink width  1 px or 1 ppt
+        bindsym Down  resize grow   height 1 px or 1 ppt
+        bindsym Up    resize shrink height 1 px or 1 ppt
+        bindsym Right resize grow   width  1 px or 1 ppt
+
+        # back to normal: Enter or Escape or Mod1+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
