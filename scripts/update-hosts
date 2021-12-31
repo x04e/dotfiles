@@ -1,0 +1,35 @@
+#!/bin/sh
+while getopts d:c: flag
+do
+	case "${flag}" in
+		d) DELIMETER=${OPTARG};;
+		c) COMMENT=${OPTARG};;
+	esac
+done
+
+# Catpure any other arguments in an array
+shift $(($OPTIND - 1))
+BLOCKLIST=($@)
+
+HOSTS_FILE=/etc/hosts
+
+# If there are no items in between the delimeter comments, delete the entire block
+[ "$(grep "$DELIMETER" "$HOSTS_FILE" | wc -l)" -ge 2 ] && {
+	OUT=$(cat "$HOSTS_FILE" | sed '/'$DELIMETER'/,/'$DELIMETER'/d')
+	echo "$OUT" > "$HOSTS_FILE"
+	
+	echo "Removed sites from /etc/hosts"
+
+# Else add each element of the list between the delimeters
+} || {
+	echo "# $DELIMETER START ($COMMENT)" >> "$HOSTS_FILE"
+	for i in ${BLOCKLIST[@]}; do
+		echo -e "${i/,/\\t}" >> "$HOSTS_FILE"
+	done
+	echo "# $DELIMETER END" >> "$HOSTS_FILE"
+
+	echo "Added sites to /etc/hosts"
+}
+
+printf "    %s\n" "${BLOCKLIST[@]}"
+

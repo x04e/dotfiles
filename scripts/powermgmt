@@ -1,0 +1,39 @@
+#!/bin/sh
+
+SHUTDOWN=1
+RESTART=2
+SUSPEND=3
+LOCK=4
+CANCEL=0
+
+yad \
+  --no-button \
+  --button=" Shutdown!system-shutdown:$SHUTDOWN" \
+  --button=" Restart!system-restart:$RESTART" \
+  --button=" Suspend!system-suspend-hibernate:$SUSPEND" \
+  --button=" Lock!lock:$LOCK" \
+  --button=" Cancel:$CANCEL" \
+  2>/dev/null
+
+case "$?" in
+  $SHUTDOWN)
+	#echo "shutdown"
+	shutdown now
+	;;
+
+  $RESTART)
+	#echo "reboot"
+	reboot
+	;;
+
+  $SUSPEND)
+	#echo "suspend"
+	sudo systemctl suspend
+	;;
+
+  $LOCK)
+	#echo "lock"
+	dm-tool switch-to-greeter
+	;;
+esac
+

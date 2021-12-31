@@ -1,0 +1,7 @@
+#!/bin/sh
+
+HOSTS=$(\
+  dig @172.16.0.2 -tAXFR hlab.local |\
+  sed -n 's/^\([[:graph:]]\+\.hlab\.local\).*[[:space:]]A[[:space:]]*\([[:graph:]]\+\)$/\2,\1/p'\
+)
+update-hosts -d 'VMWARE-HLAB.LOCAL' -c 'vmware hlab.local hosts' ${HOSTS[@]}

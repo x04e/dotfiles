@@ -1,0 +1,9 @@
+#!/bin/bash
+RATE=$(nmcli -f IN-USE,RATE dev wifi list | grep '*' | awk '{ print $2 }')
+[[ $RATE = '' ]] && echo " 睊 no signal " || echo " 直 ${RATE} Mb/s "
+
+# Colour codes don't seem to work
+#[[ $SIGSTR -le 25 ]]  && echo "\[91m直\e[0m" && exit
+#[[ $SIGSTR -le 50 ]]  && echo "\e[31m直\e[0m" && exit
+#[[ $SIGSTR -le 75 ]]  && echo "\e[33m直\e[0m" && exit
+#[[ $SIGSTR -le 100 ]] && echo "\e[32m直\e[0m"

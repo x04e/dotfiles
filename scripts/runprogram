@@ -1,0 +1,10 @@
+#!/bin/sh
+PROGRAMS=$(\
+	echo "$PATH" \
+	| sed 's/:/\n/g' \
+	| xargs -I{} find {} -executable -maxdepth 1 \
+	| sed 's/.*\///g' \
+)
+
+$(echo "${PROGRAMS[@]}" | uiselect | sed 's/|//g')
+

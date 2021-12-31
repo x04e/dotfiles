@@ -1,0 +1,2 @@
+#!/bin/sh
+xwd -root | convert xwd:- png:- > /home/liam/screenshots/$(date +%F-%H-%M-%S).png

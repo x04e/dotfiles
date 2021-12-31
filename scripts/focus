@@ -1,0 +1,10 @@
+#!/bin/sh
+
+BLOCKLIST=(
+'www.youtube.com'
+'www.netflix.com'
+)
+
+_BLOCKLIST=$(printf "127.0.0.1,%s " "${BLOCKLIST[@]}")
+update-hosts -d 'FOCUS' -c 'focus' ${_BLOCKLIST[@]}
+

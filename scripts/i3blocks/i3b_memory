@@ -1,0 +1,6 @@
+#!/bin/sh
+
+[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec deepin-system-monitor 2>&1 > /dev/null
+
+echo "$(free | awk -v CONVFMT='%.1f' 'FNR==2 { print 100-($7/$2)*100 "% "}')"
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+cd ~/music
+mpc repeat on
+next=$(ls | uiselect -R)
+[[ -z "$next" ]] && exit
+
+mpc clear
+mpc insert "${next}"
+mpc play

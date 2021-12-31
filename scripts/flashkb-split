@@ -1,0 +1,15 @@
+cd /home/liam/dev/qmk_firmware
+echo "Building keyboard firmware"
+make keebio/nyquist/rev3:liamcustom && {
+	echo "Done"
+	echo -n "\nFlashing firmware in:"
+
+	for i in {5..1}; do
+		echo $i
+		sleep 1
+	done
+
+	echo -n "\nFlashing firmware..."
+
+	sudo avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:/home/liam/dev/qmk_firmware/keebio_nyquist_rev3_liamcustom.hex
+}

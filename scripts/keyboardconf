@@ -1,0 +1,2 @@
+#!/bin/sh
+cat ~/dev/qmk_firmware/keyboards/planck/keymaps/liamcustom/keymap.c
