@@ -1,9 +1,7 @@
 URxvt.font: xft:FantasqueSansMono Nerd Font Mono:size=12:antialias=true
-xterm.faceName: FantasqueSansMono Nerd Font
-xterm.faceSize: 23
 URxvt.internalBorder: 0
 URxvt.termName: rxvt-256color
-URxvt.letterSpace: -1
+#URxvt.letterSpace: -1
 
 
 !URxvt.keysym.Up : 33[A !breaks arrow keys in Vim

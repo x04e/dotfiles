@@ -3,7 +3,6 @@ Plug 'phanviet/vim-monokai-pro'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline'
 call plug#end()
 
 set encoding=UTF-8
@@ -21,7 +20,6 @@ set mouse=a
 set undofile
 set hidden
 set incsearch
-"set nohlsearch
 set spell
 set ignorecase
 set clipboard=unnamedplus
@@ -42,14 +40,8 @@ autocmd TermOpen * setlocal nospell | startinsert
 
 let g:colorizer_auto_filetype='css,html,js,ts,conf,xdefaults'
 
-"let g:netrw_preview=1
-"let g:netrw_liststyle=3
-"let g:netrw_banner=0
-"let g:netrw_browse_split=3
-"let g:netrw_winsize=20
-
 let NERDTreeShowHidden=1
-let g:airline_powerline_fonts=1
+
 noremap j h
 noremap k j
 noremap l k
@@ -76,8 +68,6 @@ noremap <S-Right>	<C-W>5>
 
 noremap , ;
 noremap < ,
-
-
 
 " Use Ctrl+(arrow key) for moving splits
 noremap <C-Left>	<C-w>H
