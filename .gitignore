@@ -1,1 +1,10 @@
+*
 .config/nvim/autoload/
+
+!.config/nvim/
+!.Xdefaults
+!.profile
+!.config/i3/
+!.config/i3blocks/
+!scripts/
+!.zshrc
