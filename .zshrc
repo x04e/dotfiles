@@ -56,6 +56,6 @@ alias ll="ls -lA --color=auto"
 alias grep="grep --color=auto"
 alias v="nvim"
 alias vim="nvim"
-alias dotcon="/usr/bin/git --git-dir $HOME/dotfiles --work-tree=$HOME"
+alias .c="/usr/bin/git --git-dir $HOME/dotfiles --work-tree=$HOME"
 #xinput --set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' -0.99
 
