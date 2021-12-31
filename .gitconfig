@@ -1,0 +1,13 @@
+[alias]
+	s = status
+	c = commit
+	a = add .
+	ps = push
+	pl = pull
+	rs = !git reset --hard HEAD && git clean -df
+	lg = log --oneline --all --graph --decorate
+[user]
+	name = Liam Hilliard
+	email = liam.h.-@hotmail.com
+[init]
+	defaultBranch = main
