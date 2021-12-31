@@ -4,6 +4,7 @@ Plug 'morhetz/gruvbox'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set encoding=UTF-8

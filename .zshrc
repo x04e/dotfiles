@@ -4,6 +4,7 @@
 SAVEHIST=10000
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
+setopt ALIASES # expand aliases, even in non-interactive mode (like vim's ":!")
 setopt KSH_ARRAYS
 setopt HIST_FIND_NO_DUPS #don't show duplicates in search
 setopt NO_HIST_BEEP #don't beep
@@ -51,5 +52,4 @@ alias del="mv -f ~/.local/share/Trash/"
 alias ll="ls -lA --color=auto"
 alias grep="grep --color=auto"
 alias .c="/usr/bin/git --git-dir $HOME/dotfiles --work-tree=$HOME"
-#xinput --set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' -0.99
 
