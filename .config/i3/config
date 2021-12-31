@@ -1,4 +1,4 @@
-# i3 config file (v4)
+
 ###### SETUP ##########################
 
 set $ws01 "[1]"
@@ -37,10 +37,6 @@ for_window [class="steam_app_*"] border pixel 0, move container to workspace $ws
 #for_window [class="^Minecraft [0-9].*"] border pixel 0, move container to workspace $ws09; workspace $ws09
 # Intellij
 for_window [title="win0"] floating enable
-
-# gaps - set to 0, but gaps are used in Zen mode ($mod+/z)
-gaps inner 0
-gaps outer 0
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -116,18 +112,6 @@ bar {
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Load programs to specific workspaces
-#                                                   /--- Escape multiple commands to ZSH ----\
-#                                                   '                                        '
-# Start terminal                                                        quote args         end quote args
-# by default              message                 quote        escape   |         escape   | end quote        end
-#                        in quotes               command      backslash |        backslash | command        message
-#                            v                      v                 v v                v v v                 v
-#exec --no-startup-id i3-msg 'workspace $ws03; exec " urxvt -e zsh -c \\"neofetch; zsh -i\\" "; workspace $ws01'
-
-#######################################
-
-
 
 ###### BINDINGS #######################
 # Use pactl to adjust volume in PulseAudio.
@@ -149,7 +133,9 @@ bindsym XF86AudioPlay        exec --no-startup-id   mpc toggle &&  $refresh_i3st
 
 ### PROGRAM KEYBINDINGS ###
 # Terminal
-bindsym $mod+Return exec $TERMINAL
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -e vim
+
 # Firefox
 bindsym $mod+f exec firefox
 

@@ -69,9 +69,6 @@ URxvt.keysym.M-C-S-Right : \033[1;8C
 URxvt.keysym.M-C-S-Left : \033[1;8D 
 
 
-
-
-
 # Zoom control
 URxvt.iso14755: false
 URxvt.iso14755_52: false
@@ -87,81 +84,33 @@ URxvt.scrollstyle: xterm
 URxvt.thickness: 1
 URxvt.scrollColor: #3a404d
 
-###### MONOKAI THEME
-! special
-*.foreground:   #d1d1d1
-*.background:   #221e2d
-*.cursorColor:  #d1d1d1
+# GRUVBOX THEME
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
-! black
-*.color0:       #272822
-*.color8:       #75715e
-
-! red
-*.color1:       #f92672
-*.color9:       #f92672
-
-! green
-*.color2:       #a6e22e
-*.color10:      #a6e22e
-
-! yellow
-*.color3:       #f4bf75
-*.color11:      #f4bf75
-
-! blue
-*.color4:       #66d9ef
-*.color12:      #66d9ef
-
-! magenta
-*.color5:       #ae81ff
-*.color13:      #ae81ff
-
-! cyan
-*.color6:       #a1efe4
-*.color14:      #a1efe4
-
-! white
-*.color7:       #f8f8f2
-*.color15:      #f9f8f5
-###### ONE DARK THEME
-#*.foreground:  #dcdfe4
-#*.background:  #282c34
-#*.cursorColor: #a3b3cc
-#!
-#! Black
-#*.color0:      #282c34
-#*.color8:      #282c34
-#!
-#! Red
-#*.color1:      #e06c75
-#*.color9:      #e06c75
-#!
-#! Green
-#*.color2:      #98c379
-#*.color10:     #98c379
-#!
-#! Yellow
-#*.color3:      #e5c07b
-#*.color11:     #e5c07b
-#!
-#! Blue
-#*.color4:      #61afef
-#*.color12:     #61afef
-#!
-#! Magenta
-#*.color5:      #c678dd
-#*.color13:     #c678dd
-#!
-#! Cyan
-#*.color6:      #56b6c2
-#*.color14:     #56b6c2
-#!
-#! White
-#*.color7:      #dcdfe4
-#*.color15:     #dcdfe4
-#!
-#! Bold, Italic, Underline
-#*.colorBD:     #abb2bf
-#!*.colorIT:
-#!*.colorUL:

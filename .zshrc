@@ -46,16 +46,10 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && 
-#source "$NVM_DIR/nvm.sh" # This loads nvm
-
 alias ls="ls -A --color=auto"
 alias del="mv -f ~/.local/share/Trash/"
 alias ll="ls -lA --color=auto"
 alias grep="grep --color=auto"
-alias v="nvim"
-alias vim="nvim"
 alias .c="/usr/bin/git --git-dir $HOME/dotfiles --work-tree=$HOME"
 #xinput --set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' -0.99
 
