@@ -74,6 +74,11 @@ noremap <S-Down>	<C-W>5-
 noremap <S-Up>		<C-W>5+
 noremap <S-Right>	<C-W>5>
 
+noremap , ;
+noremap < ,
+
+
+
 " Use Ctrl+(arrow key) for moving splits
 noremap <C-Left>	<C-w>H
 noremap <C-Down>	<C-w>J
