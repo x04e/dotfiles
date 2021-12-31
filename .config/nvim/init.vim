@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/autoload/plugged')
-Plug 'phanviet/vim-monokai-pro'
+Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
 Plug 'chrisbra/Colorizer'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -8,7 +9,7 @@ call plug#end()
 set encoding=UTF-8
 set nocompatible
 set termguicolors
-colorscheme monokai_pro
+colorscheme gruvbox
 set tabstop=4
 set shiftwidth=4
 set nowrap
@@ -65,6 +66,11 @@ noremap <S-Left>	<C-W>5<
 noremap <S-Down>	<C-W>5-
 noremap <S-Up>		<C-W>5+
 noremap <S-Right>	<C-W>5>
+
+inoremap <Left> <nop>
+inoremap <Down> <nop>
+inoremap <Up> <nop>
+inoremap <Right> <nop>
 
 noremap , ;
 noremap < ,
