@@ -34,37 +34,19 @@ __fastgit_ps1 () {
 }
 
 _prompt () {
-    # Background colours
-    
-    # teal -> yellow theme
-    #local theme=("023" "029" "215" "221" "227" \
-    #             "254" "254" "234" "232" "234" )
+    local bg="234"
+    local fg1="242"
+    local fg2="247"
+    local fg3="006"
+    local fg4="242"
+    local pl="\ue0b0"
 
-    # dark grey -> light grey theme
-    #local theme=("236" "238" "242" "244" "247" \
-    #             "252" "252" "232" "232" "234" )
- 
-    # purple -> yellow theme
-    local theme=("089" "125" "215" "221" "227" \
-                 "253" "253" "232" "232" "234" )
-  
-    # blue -> yellow theme
-    #local theme=("061" "104" "221" "227" "229" \
-    #             "252" "252" "232" "232" "234" )
-    
-    local pl="\ue0b0" # Powerline arrow
-    local time="%K{${theme[0]}}%F{${theme[5]}} %D{%H:%M:%S} %F{${theme[0]}}"
-    #local user="%K{${theme[1]}}$pl%F{${theme[6]}} %n %F{${theme[1]}}"
-    local dir="%K{${theme[1]}}$pl%F{${theme[6]}} %~ %F{${theme[1]}}"
-    local prompt="$time$dir"
-    local git="$(__fastgit_ps1 ' \uf418 %s')"
+    local gitbranch="$(__fastgit_ps1 '%s')"
 
-    # Preserve ordering of colours whether the git info is shown or not
-    [[ $git ]] && {
-        prompt="$prompt%K{${theme[3]}}$pl%F{${theme[8]}}$git%F{${theme[3]}} %K{${theme[4]}}$pl%F{${theme[9]}} >%F{${theme[4]}}%k$pl%f "
+    [[ $gitbranch ]] && {
+        echo "%K{$bg}%F{$fg1} %D{%H:%M:%S} %F{$fg2}%~ %F{$fg3}$gitbranch%F{$fg4}%K{$bg} >%F{$bg}%k$pl%f "
     } || {
-        prompt="$prompt%K{${theme[3]}}$pl%F{${theme[8]}} >%F{${theme[3]}}%k$pl%f "
+        echo "%K{$bg}%F{$fg1} %D{%H:%M:%S} %F{$fg2}%~ %F{$fg4}>%F{$bg}%k$pl%f "
     }
-
-    echo "$prompt"
 }
+
