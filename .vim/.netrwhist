@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/etc/X11/xorg.conf.d'
+let g:netrw_dirhist_9='/home/liam/.config/gtk-3.0'
+let g:netrw_dirhist_8='/etc'
+let g:netrw_dirhist_7='/'
+let g:netrw_dirhist_6='/home/liam/laptop-dotfiles'
+let g:netrw_dirhist_5='/mnt/exthdd/2020-10-16 WinBackup/SDrive/qmk_firmware/keyboards/lets_split'
+let g:netrw_dirhist_4='/mnt/exthdd/2020-10-16 WinBackup/SDrive/qmk_firmware/keyboards'
+let g:netrw_dirhist_3='/mnt/exthdd/2020-10-16 WinBackup/SDrive/qmk_firmware'
+let g:netrw_dirhist_2='/mnt/exthdd/2020-10-16 WinBackup/SDrive'
+let g:netrw_dirhist_1='/home/liam/dev/qmk_firmware/keyboards/planck/keymaps/liamcustom'

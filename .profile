@@ -4,7 +4,7 @@
 export SHELL="zsh" # Use dash as /bin/sh and zsh for interactive shell
 export TERMINAL="urxvt"
 export BROWSER="firefox"
-export EDITOR="nvim"
+export EDITOR="vim"
 export VISUAL=$EDITOR
 export PATH=$PATH:$HOME/scripts
 export PATH=$PATH:/opt/arduino-1.8.13

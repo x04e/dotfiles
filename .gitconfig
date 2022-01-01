@@ -1,7 +1,7 @@
 [alias]
 	s = status
 	c = commit
-	a = add .
+	a = add
 	ps = push
 	pl = pull
 	rs = !git reset --hard HEAD && git clean -df

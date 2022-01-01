@@ -1,7 +1,8 @@
 *
-.config/nvim/autoload/
 
-!.config/nvim/
+!.vim/
+.vim/autoload/
+
 !.Xdefaults
 !.profile
 !.config/i3/

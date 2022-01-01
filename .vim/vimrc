@@ -5,11 +5,13 @@ Plug 'chrisbra/Colorizer'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 call plug#end()
 
 set encoding=UTF-8
 set nocompatible
 set termguicolors
+set background=dark
 colorscheme gruvbox
 set tabstop=4
 set shiftwidth=4
@@ -31,6 +33,8 @@ set splitbelow splitright
 set tildeop
 set history=100
 set autowrite
+set shortmess+=c
+set colorcolumn=80
 filetype plugin on
 syntax on
 
@@ -38,7 +42,7 @@ syntax on
 autocmd FileType help setlocal number relativenumber | wincmd L
 
 " Disable spellcheck underlining in terminal mode and start in insert mode
-autocmd TermOpen * setlocal nospell | startinsert
+autocmd BufNew * if &buftype == "terminal" | setlocal nospell | startinsert
 
 let g:colorizer_auto_filetype='css,html,js,ts,conf,xdefaults'
 
