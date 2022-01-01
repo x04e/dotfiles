@@ -72,8 +72,6 @@ URxvt.keysym.M-C-S-Left : \033[1;8D
 # Zoom control
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-URxvt.keysym.Control-Shift-Down: resize-font:smaller
-URxvt.keysym.Control-Shift-Up:   resize-font:bigger
 
 URxvt.intensityStyles: false
 URxvt.visualBell: false
