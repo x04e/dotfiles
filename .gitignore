@@ -2,9 +2,11 @@
 
 !.nvim/
 .nvim/autoload/
+.nvim/plugged/
 
 .vim/
 .vim/autoload/
+.vim/plugged/
 
 !.Xdefaults
 !.profile
