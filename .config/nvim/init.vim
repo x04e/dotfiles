@@ -27,7 +27,6 @@ set ignorecase
 set clipboard=unnamedplus
 set list
 set listchars=tab:──›,trail:·,lead:·,conceal:?
-set listchars=tab:›-,trail:·,lead:·
 set splitbelow splitright
 set tildeop
 set history=100
