@@ -1,6 +1,9 @@
 *
 
-!.vim/
+!.nvim/
+.nvim/autoload/
+
+.vim/
 .vim/autoload/
 
 !.Xdefaults
