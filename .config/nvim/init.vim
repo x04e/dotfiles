@@ -31,11 +31,12 @@ set listchars=tab:›-,trail:·,lead:·
 set splitbelow splitright
 set tildeop
 set history=100
+set autowrite
 filetype plugin on
 syntax on
 
 " Show number/relativenumber in help screens
-autocmd FileType help setlocal number relativenumber
+autocmd FileType help setlocal number relativenumber | wincmd L
 
 " Disable spellcheck underlining in terminal mode and start in insert mode
 autocmd TermOpen * setlocal nospell | startinsert
@@ -82,11 +83,6 @@ noremap <C-Down>	<C-w>J
 noremap <C-Up>		<C-w>K
 noremap <C-Right>	<C-w>L
 
-autocmd WinNew * wincmd L
-
-"
-" Terminal Mode
-"
-" Exit with ESC instead of Ctrl+\ Ctrl+n
+" Exit Terminal Mode with ESC
 tnoremap <ESC> <C-\><C-n>
 
