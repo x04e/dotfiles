@@ -80,7 +80,7 @@ URxvt.cursorBlink: true
 
 URxvt.scrollstyle: xterm
 URxvt.thickness: 1
-URxvt.scrollColor: #3a404d
+URxvt.scrollColor: #3c3836
 
 # GRUVBOX THEME
 ! hard contrast: *background: #1d2021

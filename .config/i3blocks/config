@@ -1,6 +1,6 @@
 # Custom i3blocks config. Most sections are scripts from ~/scripts/i3blocks/
-background=#212034
-color=#dedede
+background=#282828
+color=#ebdbb2
 align=center
 separator=false
 separator_block_width=0
@@ -13,23 +13,6 @@ border_right=0
 [hide_i3blocks]
 command=sleep 5 && i3-msg bar hidden_state toggle > /dev/null
 interval=once
-
-### Prompt Colours - Use :ColorToggle to show in vim
-# #005f5f #014d4d
-# #00875f #017553
-# #ffaf5f #f0a356
-# #ffd75f #edc755
-# #ffff5f #f2f25c
-# OneDark Grey
-# #3a404d
-
-### Abstract Background Colours
-# #212034 #1f1e30
-# #34344d #303046
-# #e56551 #dc614d
-# #f0b426 #e8ae25
-# #ffcf3b #fbcb39
-
 
 #-------------#
 
