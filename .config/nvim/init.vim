@@ -7,6 +7,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'airblade/vim-gitgutter'
+Plug 'axelf4/vim-strip-trailing-whitespace'
 call plug#end()
 
 let g:coc_data_home = '~/.config/nvim/coc'
@@ -15,7 +16,6 @@ let g:coc_global_extensions = [
     \'coc-java',
     \'coc-tsserver',
     \'coc-eslint',
-    \'coc-tslint',
     \'coc-sql',
     \'coc-tslint-plugin',
     \'coc-sh',
@@ -83,15 +83,17 @@ noremap z; zl
 " Window splits
 "
 " Arrow keys for navigating splits
-noremap <Left>	<C-w>h
-noremap <Down>	<C-w>j
-noremap <Up>	<C-w>k
-noremap <Right>	<C-w>l
+noremap <Left>  <C-w>h
+noremap <Down>  <C-w>j
+noremap <Up>    <C-w>k
+noremap <Right> <C-w>l
 " Shift+(arrow key) for resizing splits
-noremap <S-Left>	<C-W>5<
-noremap <S-Down>	<C-W>5-
-noremap <S-Up>		<C-W>5+
-noremap <S-Right>	<C-W>5>
+noremap <S-Left>    <C-W>5<
+noremap <S-Down>    <C-W>5-
+noremap <S-Up>      <C-W>5+
+noremap <S-Right>   <C-W>5>
+" Open new split vertically
+noremap <C-w>N <C-w>n<C-w>L
 
 inoremap <Left> <nop>
 inoremap <Down> <nop>
@@ -102,11 +104,27 @@ noremap , ;
 noremap < ,
 
 " Use Ctrl+(arrow key) for moving splits
-noremap <C-Left>	<C-w>H
-noremap <C-Down>	<C-w>J
-noremap <C-Up>		<C-w>K
-noremap <C-Right>	<C-w>L
+noremap <C-Left>    <C-w>H
+noremap <C-Down>    <C-w>J
+noremap <C-Up>      <C-w>K
+noremap <C-Right>   <C-w>L
 
 " Exit Terminal Mode with ESC
 tnoremap <ESC> <C-\><C-n>
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
+
+
+inoremap <silent><expr> <S-Tab>
+    \ pumvisible() ? "\<C-p>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 

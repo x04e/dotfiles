@@ -1,11 +1,12 @@
 /*
 !.gitignore
-
 !.config/
+.config/*
 !.config/nvim/init.vim
 .config/nvim/autoload/
 .config/nvim/plugged/
-
+!.config/i3/
+!.config/i3blocks/
 !.Xdefaults
 !.profile
 !scripts/
