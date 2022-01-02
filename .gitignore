@@ -1,16 +1,13 @@
-*
+/*
+!.gitignore
 
-!.nvim/
-.nvim/autoload/
-.nvim/plugged/
-
-!.vim/
-.vim/autoload/
-.vim/plugged/
+!.config/
+!.config/nvim/init.vim
+.config/nvim/autoload/
+.config/nvim/plugged/
 
 !.Xdefaults
 !.profile
-!.config/i3/
-!.config/i3blocks/
 !scripts/
 !.zshrc
+
