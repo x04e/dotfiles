@@ -9,6 +9,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+let g:coc_data_home = '~/.config/nvim/coc'
 let g:coc_global_extensions = [
     \'coc-json',
     \'coc-java',
@@ -59,7 +60,7 @@ filetype plugin on
 syntax on
 
 " Show number/relativenumber in help screens
-autocmd FileType help setlocal number relativenumber | wincmd L
+autocmd FileType help setlocal nolist nospell number relativenumber | wincmd L
 
 " Disable spellcheck underlining in terminal mode and start in insert mode
 autocmd TermOpen * | setlocal nospell | startinsert
