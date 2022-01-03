@@ -58,7 +58,7 @@ full_text=
 
 [volume_icon]
 full_text=" <span size=\"x-large\"></span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || pavucontrol;
+command=[[ -z "${BLOCK_BUTTON}" ]] || (setsid pavucontrol &)
 markup=pango
 interval=once
 
