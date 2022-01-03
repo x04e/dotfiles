@@ -53,11 +53,10 @@ bar {
 ### WINDOW COLOURS
 #                       border    backgrnd  text      indicator child_border
 client.focused          "#3a3836" "#3a3836" "#ebdbb2" "#b9aa90" "#928374"
-client.unfocused        "#31302f" "#31302f" "#a89984" "#31302f" "#31302f"
-client.focused_inactive "#31302f" "#31302f" "#a89984" "#31302f" "#31302f"
-client.urgent           "#31302f" "#31302f" "#a89984" "#31302f" "#31302f"
-client.placeholder      "#31302f" "#31302f" "#a89984" "#31302f" "#31302f"
-
+client.focused_inactive "#3a3836" "#3a3836" "#a89984" "#3a3836" "#3a3836"
+client.unfocused        "#282828" "#282828" "#928374" "#31302f" "#282828"
+client.urgent           "#282828" "#282828" "#928374" "#31302f" "#282828"
+client.placeholder      "#282828" "#282828" "#928374" "#31302f" "#282828"
 
 ### RULES
 for_window [class="^.*"] border pixel 2 # Disable titlebars
