@@ -8,6 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'airblade/vim-gitgutter'
 Plug 'axelf4/vim-strip-trailing-whitespace'
+Plug 'XadillaX/json-formatter.vim'
 call plug#end()
 
 let g:coc_data_home = '~/.config/nvim/coc'
