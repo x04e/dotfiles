@@ -37,9 +37,9 @@ bar {
     position bottom
     strip_workspace_numbers yes
     font pango:FantasqueSansMono Nerd Font Mono 14
-    i3bar_command i3bar
+    i3bar_command i3bar -t
     colors {
-        background "#282828"
+        background "#00000000"
         #                    border    backgrnd  text
         focused_workspace   "#282828" "#282828" "#ebdbb2"
         active_workspace    "#282828" "#282828" "#ebdbb2"
@@ -87,8 +87,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id mpc vol -5 && $refresh_i3statu
 bindsym XF86AudioStop        exec --no-startup-id   mpc toggle &&  $refresh_i3status
 bindsym XF86AudioPlay        exec --no-startup-id   mpc toggle &&  $refresh_i3status
 # Programs and scripts
-bindsym $mod+Return exec urxvt # Shell terminal emulator
-bindsym $mod+Shift+Return exec urxvt -e vim # Vim terminal emulator
+bindsym $mod+Shift+Return exec urxvt # Shell terminal emulator
+bindsym $mod+Return exec urxvt -e vim -c terminal # Vim terminal emulator
 bindsym $mod+f exec firefox
 bindsym $mod+d exec runprogram # Program launcher
 bindsym $mod+m exec music # Music selection
