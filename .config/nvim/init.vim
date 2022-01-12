@@ -8,6 +8,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'airblade/vim-gitgutter'
 Plug 'axelf4/vim-strip-trailing-whitespace'
+Plug 'junegunn/fzf.vim'
 Plug 'XadillaX/json-formatter.vim'
 call plug#end()
 

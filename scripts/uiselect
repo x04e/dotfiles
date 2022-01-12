@@ -1,24 +1,6 @@
 #!/bin/sh
 
-# -R option will set the --regex-search argument for yad instead of the usual search
-# Normal search only searches based on the *start* of a line
-# Regex will search the entire line, but can of course match undesired programs
-while getopts R flag
-do
-  case "$flag" in
-    R) use_regex=1
-  esac
-done
+urxvt -name "FLOAT"\
+    -fn "xft:FantasqueSansMono Nerd Font Mono:size=14" \
+    -e sh -c "cat $0 | fzf --color=16 --info=inline --layout=reverse --border=rounded < /proc/$$/fd/0 > /proc/$$/fd/1"
 
-sort \
-  | sed 's/\(.*\)/FantasqueSansMono Nerd Font Mono 14\n\1/g' \
-  | yad --list \
-        --column=@font@ \
-        --column="" \
-        ${use_regex:+ --regex-search } \
-        --search-column=2 \
-        --no-buttons \
-        --quoted \
-        --width=600 \
-        --height=700 \
-  | sed 's/|//g'
