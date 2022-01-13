@@ -66,12 +66,14 @@ URxvt.keysym.M-C-End : \033[1;7F
 URxvt.keysym.M-C-S-Up : \033[1;8A
 URxvt.keysym.M-C-S-Down : \033[1;8B
 URxvt.keysym.M-C-S-Right : \033[1;8C
-URxvt.keysym.M-C-S-Left : \033[1;8D 
+URxvt.keysym.M-C-S-Left : \033[1;8D
 
 
 # Zoom control
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+URxvt.keysym.C-S-Down: resize-font:smaller
+URxvt.keysym.C-S-Up:   resize-font:bigger
 
 URxvt.intensityStyles: false
 URxvt.visualBell: false
@@ -80,7 +82,7 @@ URxvt.cursorBlink: true
 
 URxvt.scrollstyle: xterm
 URxvt.thickness: 1
-URxvt.scrollColor: #3c3836
+URxvt.scrollColor: #3a404d
 
 # GRUVBOX THEME
 ! hard contrast: *background: #1d2021
