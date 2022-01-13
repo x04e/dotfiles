@@ -71,6 +71,7 @@ let g:colorizer_auto_filetype='css,html,js,ts,conf,xdefaults'
 
 let NERDTreeShowHidden=1
 
+" TODO: Try nnoremap
 noremap j h
 noremap k j
 noremap l k
@@ -84,6 +85,7 @@ noremap z; zl
 "
 " Window splits
 "
+" TODO: Try nnoremap
 " Arrow keys for navigating splits
 noremap <Left>  <C-w>h
 noremap <Down>  <C-w>j
@@ -102,6 +104,7 @@ inoremap <Down> <nop>
 inoremap <Up> <nop>
 inoremap <Right> <nop>
 
+" TODO: Try nnoremap
 noremap , ;
 noremap < ,
 
@@ -111,8 +114,13 @@ noremap <C-Down>    <C-w>J
 noremap <C-Up>      <C-w>K
 noremap <C-Right>   <C-w>L
 
+" TODO: Try using something else, like C-ESC for this so terminal git will
+" work if needed
 " Exit Terminal Mode with ESC
 tnoremap <ESC> <C-\><C-n>
+
+
+" TODO: Describe what these functions for CoC do
 
 function! s:check_back_space() abort
     let col = col('.') - 1
