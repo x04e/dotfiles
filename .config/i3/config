@@ -20,7 +20,8 @@ set $ws08 "[8]"
 set $ws09 "[9]"
 
 set $refresh_i3status killall -SIGUSR1 i3blocks
-
+gaps inner 0
+gaps outer 0
 
 ### STARTUP
 exec --no-startup-id setxkbmap -layout ie -option terminate:ctrl_alt_bksp # Kill X with Ctrl-Alt-Bkspc
@@ -91,7 +92,6 @@ bindsym XF86AudioStop        exec --no-startup-id   mpc toggle &&  $refresh_i3st
 bindsym XF86AudioPlay        exec --no-startup-id   mpc toggle &&  $refresh_i3status
 # Programs and scripts
 bindsym $mod+Return exec $TERMINAL # Shell terminal emulator
-bindsym $mod+Shift+Return exec $TERMINAL -e vim -c terminal # Vim terminal emulator
 bindsym $mod+f exec firefox
 bindsym $mod+d exec runprogram # Program launcher
 bindsym $mod+m exec music # Music selection
@@ -103,7 +103,7 @@ bindsym $mod+Tab exec ~/scripts/powermgmt # Shutdown, Restart, Sleep, Lock menu
 bindsym $mod+q kill
 bindsym $mod+e scratchpad show
 bindsym $mod+g floating toggle
-bindsym $mod+z gaps horizontal current toggle 700 # "Zen" mode
+bindsym $mod+z gaps horizontal current toggle 700
 bindsym $mod+Shift+r restart
 bindsym $mod+r mode "resize"
 # Container Focus/Movement
