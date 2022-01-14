@@ -5,15 +5,14 @@ SAVEHIST=10000
 HISTSIZE=10000
 HISTFILE=~/.zsh_history
 setopt ALIASES # expand aliases, even in non-interactive mode (like vim's ":!")
-setopt KSH_ARRAYS
 setopt HIST_FIND_NO_DUPS #don't show duplicates in search
 setopt NO_HIST_BEEP #don't beep
 setopt SHARE_HISTORY #share history between terminals
 setopt PROMPT_SUBST
 setopt autopushd
 autoload -U colors && colors
-source ~/scripts/util/shellprompt.sh
 
+source ~/scripts/util/shellprompt.sh
 PS1="\$(_prompt)"
 
 source /usr/share/fzf/key-bindings.zsh
