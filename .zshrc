@@ -10,7 +10,7 @@ setopt HIST_FIND_NO_DUPS #don't show duplicates in search
 setopt NO_HIST_BEEP #don't beep
 setopt SHARE_HISTORY #share history between terminals
 setopt PROMPT_SUBST
-
+setopt autopushd
 autoload -U colors && colors
 source ~/scripts/util/shellprompt.sh
 
@@ -19,7 +19,8 @@ PS1="\$(_prompt)"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-#bindkey -e # emacs mode, over vi mode
+bindkey -e
+
 # Fix keys
 case "$TERM" in
     *rxvt*)
