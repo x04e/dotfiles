@@ -16,7 +16,7 @@ source ~/scripts/util/shellprompt.sh
 
 PS1="\$(_prompt)"
 
-bindkey -e # emacs mode, over vi mode
+#bindkey -e # emacs mode, over vi mode
 # Fix Delete, Home and End keys
 bindkey "\e[3~" delete-char
 # HOME, C-HOME
