@@ -1,7 +1,5 @@
 #!/bin/sh
 
-urxvt -name "FLOAT"\
-    -geometry 60x15 \
-    -fn "xft:FantasqueSansMono Nerd Font Mono:size=14" \
+alacritty --class FLOAT,Alacritty -o "font.size=14" -o "background_opacity=1.0" \
     -e sh -c "cat $0 | fzf < /proc/$$/fd/0 > /proc/$$/fd/1"
 
