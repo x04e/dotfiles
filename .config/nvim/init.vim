@@ -138,3 +138,5 @@ inoremap <silent><expr> <S-Tab>
     \ <SID>check_back_space() ? "\<TAB>" :
     \ coc#refresh()
 
+autocmd VimLeave,VimSuspend * set guicursor=a:hor20
+
