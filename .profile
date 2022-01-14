@@ -13,7 +13,17 @@ export NVM_DIR="/home/liam/.nvm"
 source "$NVM_DIR/nvm.sh"
 export PATH=$PATH:/opt/piavpn/bin
 
+export FZF_HIST_FILE="/home/liam/.fzf_history"
+[ -f $FZF_HIST_FILE ] || touch $FZF_HIST_FILE
+export FZF_DEFAULT_OPTS="--color=16 --cycle --info=inline --reverse --border=rounded --history=$FZF_HIST_FILE"
+
 xinput --set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' -0.99
 feh --bg-fill /usr/share/pixmaps/backgrounds/abstract-background.jpg
-mpd --no-daemon &
-picom &
+
+launch_singleton () {
+    [ -z "$(ps --no-header -C $1)" ] && { $1 &; } || echo "$1 is already running"
+}
+
+launch_singleton "mpd --no-daemon"
+launch_singleton "picom"
+
