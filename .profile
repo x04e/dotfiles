@@ -20,10 +20,6 @@ export FZF_DEFAULT_OPTS="--color=16 --cycle --info=inline --reverse --border=rou
 xinput --set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' -0.99
 feh --bg-fill /usr/share/pixmaps/backgrounds/abstract-background.jpg
 
-launch_singleton () {
-    [ -z "$(ps --no-header -C $1)" ] && { $1 &; } || echo "$1 is already running"
-}
-
-launch_singleton "mpd --no-daemon"
-launch_singleton "picom"
+[ -z "$(ps --no-header -C $1)" ] && mpd --no-daemon &
+[ -z "$(ps --no-header -C $1)" ] && picom &
 
