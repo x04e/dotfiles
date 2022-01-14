@@ -3,5 +3,5 @@
 urxvt -name "FLOAT"\
     -geometry 60x15 \
     -fn "xft:FantasqueSansMono Nerd Font Mono:size=14" \
-    -e sh -c "cat $0 | fzf --color=16 --info=inline --layout=reverse --border=rounded < /proc/$$/fd/0 > /proc/$$/fd/1"
+    -e sh -c "cat $0 | fzf --color=16 --cycle --info=inline --layout=reverse --border=rounded < /proc/$$/fd/0 > /proc/$$/fd/1"
 
