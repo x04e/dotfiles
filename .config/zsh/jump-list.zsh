@@ -1,35 +1,46 @@
 #!/bin/zsh
 setopt AUTO_PUSHD
-STACK_POS=0
+POS=1
+JUMPING=0
+JUMPS=0
+STACK=($(pwd))
 
-jump-newer () {
-    unsetopt AUTO_PUSHD
-    IFS=$'\n' DIR_STACK=($(dirs -pl))
-    STACK_POS=$(($STACK_POS - 1))
-    [ $STACK_POS -lt 0 ] && STACK_POS=0
-    echo "\n$(dirs -pv)\npos: $STACK_POS"
-    cd "${DIR_STACK[$STACK_POS]}"
-    zle accept-line
-    setopt AUTO_PUSHD
+chpwd () {
+    if [ $JUMPING -eq 1 ]; then
+        POS=1
+    else
+        STACK=($(pwd) ${STACK[@]})
+    fi
+    JUMPS=${#STACK[@]}
 }
 
 jump-older () {
+    JUMPING=1
     unsetopt AUTO_PUSHD
-    IFS=$'\n' DIR_STACK=($(dirs -pl))
-    STACK_POS=$(($STACK_POS + 1))
-    [ $STACK_POS -gt ${#DIR_STACK[@]} ] && STACK_POS=${#DIR_STACK[@]}
-    echo "\n$(dirs -pv)\npos: $STACK_POS"
-    cd "${DIR_STACK[$STACK_POS]}"
-    zle accept-line
+    if [ $POS -lt $JUMPS ]; then
+        POS=$(($POS+1))
+        cd -q "${STACK[$POS]}"
+        zle accept-line
+    fi
     setopt AUTO_PUSHD
+    JUMPING=0
+}
+
+jump-newer () {
+    JUMPING=1
+    unsetopt AUTO_PUSHD
+    if [ $POS -gt 1 ]; then
+        POS=$(($POS-1))
+        cd -q "${STACK[$POS]}"
+        zle accept-line
+    fi
+    setopt AUTO_PUSHD
+    JUMPING=0
 }
 
 zle -N jump-newer
 zle -N jump-older
 
-go-up-dir(){ cd .. }
-zle -N go-up-dir
-bindkey '^I' jump-newer
-bindkey '^O' jump-older
-bindkey '^u' go-up-dir
+bindkey '^l' jump-newer
+bindkey '^o' jump-older
 
