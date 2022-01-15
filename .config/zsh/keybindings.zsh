@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Fix keys
 case "$TERM" in
     *rxvt*)

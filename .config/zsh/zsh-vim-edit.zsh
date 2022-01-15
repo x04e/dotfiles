@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 zsh-vim-edit() {
     zle -I
