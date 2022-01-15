@@ -3,7 +3,7 @@
 #history
 SAVEHIST=10000
 HISTSIZE=10000
-HISTFILE=~/.zsh_history
+HISTFILE=$ZDOTDIR/zsh_history
 setopt ALIASES # expand aliases, even in non-interactive mode (like vim's ":!")
 setopt HIST_FIND_NO_DUPS #don't show duplicates in search
 setopt NO_HIST_BEEP #don't beep

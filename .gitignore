@@ -3,6 +3,7 @@
 !.config/
 .config/*
 !.config/alacritty
+!.config/git
 !.config/nvim/init.vim
 .config/nvim/autoload/
 .config/nvim/plugged/
@@ -11,5 +12,7 @@
 !.Xdefaults
 !.profile
 !scripts/
-!.zshrc
+!.zshenv
+!.config/zsh
+.config/zsh/zsh_history
 
