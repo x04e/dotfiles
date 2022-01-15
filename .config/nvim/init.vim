@@ -70,73 +70,71 @@ autocmd TermOpen * | setlocal nospell | startinsert
 let g:colorizer_auto_filetype='css,html,js,ts,conf,xdefaults'
 
 let NERDTreeShowHidden=1
+let mapleader=' '
 
-" TODO: Try nnoremap
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
+nnoremap j h
+nnoremap k j
+nnoremap l k
+nnoremap ; l
 
-noremap zj zh
-noremap zk zj
-noremap zl zk
-noremap z; zl
+nnoremap zj zh
+nnoremap zk zj
+nnoremap zl zk
+nnoremap z; zl
 
 "
 " Window splits
 "
-" TODO: Try nnoremap
+" Use Ctrl+(arrow key) for moving splits
+nnoremap <C-Left>    <C-w>H
+nnoremap <C-Down>    <C-w>J
+nnoremap <C-Up>      <C-w>K
+nnoremap <C-Right>   <C-w>L
 " Arrow keys for navigating splits
-noremap <Left>  <C-w>h
-noremap <Down>  <C-w>j
-noremap <Up>    <C-w>k
-noremap <Right> <C-w>l
+nnoremap <Left>  <C-w>h
+nnoremap <Down>  <C-w>j
+nnoremap <Up>    <C-w>k
+nnoremap <Right> <C-w>l
 " Shift+(arrow key) for resizing splits
-noremap <S-Left>    <C-W>5<
-noremap <S-Down>    <C-W>5-
-noremap <S-Up>      <C-W>5+
-noremap <S-Right>   <C-W>5>
+nnoremap <S-Left>    <C-W>5<
+nnoremap <S-Down>    <C-W>5-
+nnoremap <S-Up>      <C-W>5+
+nnoremap <S-Right>   <C-W>5>
 " Open new split vertically
-noremap <C-w>N <C-w>n<C-w>L
+nnoremap <C-w>N <C-w>n<C-w>L
 
+
+" Same as ~/.config/zsh/jump-list.zsh to avoid breaking Tab Completion
+nnoremap <C-I> <nop>
+nnoremap <C-L> <C-I>
+
+" Disable arrow key movement
 inoremap <Left> <nop>
 inoremap <Down> <nop>
 inoremap <Up> <nop>
 inoremap <Right> <nop>
 
-" TODO: Try nnoremap
-noremap , ;
-noremap < ,
+" Center the screen when searching
+nnoremap n nzz
+nnoremap N Nzz
 
-" Use Ctrl+(arrow key) for moving splits
-noremap <C-Left>    <C-w>H
-noremap <C-Down>    <C-w>J
-noremap <C-Up>      <C-w>K
-noremap <C-Right>   <C-w>L
+" Remap command/search replay keys
+nnoremap , ;
+nnoremap < ,
 
-" TODO: Try using something else, like C-ESC for this so terminal git will
-" work if needed
 " Exit Terminal Mode with ESC
-tnoremap <ESC> <C-\><C-n>
+tnoremap <leader><ESC> <C-\><C-n>
 
-
-" TODO: Describe what these functions for CoC do
-
+" CoC - Use Tab and Shift-Tab for completions
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
+inoremap <silent><expr> <Tab>  pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 
 
-inoremap <silent><expr> <S-Tab>
-    \ pumvisible() ? "\<C-p>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-
+" Reset cursor on exit/suspend
 autocmd VimLeave,VimSuspend * set guicursor=a:hor20
 
