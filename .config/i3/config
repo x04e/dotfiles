@@ -75,7 +75,7 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_role="dialog"] floting enable
 for_window [window_role="menu"] floating enable
 for_window [window_role="Organizer"] floating enable #Firefox History, Bookmarks, etc.
-for_window [class="Minecraft Launcher"] floating enable
+for_window [class="Minecraft Launcher"] floating enable resize set 100 100
 for_window [class="Minecraft Launcher" title="Minecraft Launcher"] floating disable
 
 
