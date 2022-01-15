@@ -15,9 +15,10 @@ autoload -U colors && colors
 source ~/scripts/util/shellprompt.sh
 PS1="\$(_prompt)"
 
-source ~/scripts/custom-keybindings.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+source $ZDOTDIR/keybindings.zsh
+source $ZDOTDIR/zsh-vim-edit.zsh
 
 export PATH=$PATH:$HOME/.local/lib/npm/bin
 

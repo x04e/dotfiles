@@ -12,6 +12,7 @@
 !.Xdefaults
 !.profile
 !scripts/
+!scipts/*
 !.zshenv
 !.config/zsh
 .config/zsh/zsh_history
