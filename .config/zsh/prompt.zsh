@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 __fastgit_ps1 () {
     local headfile head branch
     local dir="$PWD"

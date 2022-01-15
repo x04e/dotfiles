@@ -9,22 +9,17 @@ setopt HIST_FIND_NO_DUPS #don't show duplicates in search
 setopt NO_HIST_BEEP #don't beep
 setopt SHARE_HISTORY #share history between terminals
 setopt PROMPT_SUBST
-setopt autopushd
+setopt AUTO_PUSHD
 autoload -U colors && colors
 
-source ~/scripts/util/shellprompt.sh
-PS1="\$(_prompt)"
-
+# Third-party plugins
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+# Custom scripts
 source $ZDOTDIR/keybindings.zsh
 source $ZDOTDIR/zsh-vim-edit.zsh
-
-export PATH=$PATH:$HOME/.local/lib/npm/bin
-
-alias ls="ls -A --color=auto"
-alias del="mv -f ~/.local/share/Trash/"
-alias ll="ls -lA --color=auto"
-alias grep="grep --color=auto"
-alias history="history 1"
+source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/prompt.zsh
+PS1="\$(_prompt)"
 

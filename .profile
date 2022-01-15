@@ -25,6 +25,7 @@ export PATH=$PATH:/opt/piavpn/bin
 # Node version manager
 export NVM_DIR="/home/liam/.nvm"
 source "$NVM_DIR/nvm.sh"
+export PATH=$PATH:$HOME/.local/lib/npm/bin
 
 
 # Java
