@@ -1,4 +1,5 @@
 #!/bin/zsh
+# Edit the current zsh command in Vim
 
 zsh-vim-edit() {
     zle -I
