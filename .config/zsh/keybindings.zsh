@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-# Use emacs mode over vi mode
-bindkey -e
-
 # Disable the ESC key to fully block vi mode
 zsh-noop(){}
 zle -N zsh-noop
