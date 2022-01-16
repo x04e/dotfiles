@@ -12,18 +12,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'XadillaX/json-formatter.vim'
 call plug#end()
 
-let g:coc_data_home = '~/.config/nvim/coc'
-let g:coc_global_extensions = [
-    \'coc-json',
-    \'coc-java',
-    \'coc-tsserver',
-    \'coc-eslint',
-    \'coc-sql',
-    \'coc-tslint-plugin',
-    \'coc-sh',
-    \'coc-angular',
-\]
-
 set encoding=UTF-8
 set nocompatible
 set termguicolors
@@ -67,9 +55,10 @@ autocmd FileType help setlocal nolist nospell number relativenumber | wincmd L
 " Disable spellcheck underlining in terminal mode and start in insert mode
 autocmd TermOpen * | setlocal nospell | startinsert
 
-let g:colorizer_auto_filetype='css,html,js,ts,conf,xdefaults'
+so ~/.config/nvim/configs/colorizer.vim
+so ~/.config/nvim/configs/nerdtree.vim
+so ~/.config/nvim/configs/coc.vim
 
-let NERDTreeShowHidden=1
 let mapleader=' '
 
 noremap j h
@@ -124,16 +113,6 @@ noremap < ,
 
 " Exit Terminal Mode with ESC
 tnoremap <leader><ESC> <C-\><C-n>
-
-" CoC - Use Tab and Shift-Tab for completions
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>  pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
-
 
 " Reset cursor on exit/suspend
 autocmd VimLeave,VimSuspend * set guicursor=a:hor20
