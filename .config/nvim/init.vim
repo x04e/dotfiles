@@ -117,3 +117,9 @@ tnoremap <leader><ESC> <C-\><C-n>
 " Reset cursor on exit/suspend
 autocmd VimLeave,VimSuspend * set guicursor=a:hor20
 
+" Make basic commands case insensitive to avoid mistyping
+command W w
+command Q q
+command WQ wq
+command Wq wq
+
