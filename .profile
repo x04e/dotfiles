@@ -32,6 +32,8 @@ export PATH=$PATH:$HOME/.local/lib/npm/bin
 export JAVA_HOME=/usr/lib/jvm/default
 export JRE_HOME=$JAVA_HOME
 
+# ZSH
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
 # FZF
 export FZF_HIST_FILE="/home/liam/.fzf_history"
