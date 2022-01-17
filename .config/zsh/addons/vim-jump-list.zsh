@@ -12,7 +12,7 @@ _VJL_DEBUG=0
 print_stack () {
     [ $_VJL_DEBUG -ne 1 ] && return
     echo
-    for i in $(seq ${#_VJL_STACK[@]}); do
+    for i in $(seq $((${#_VJL_STACK[@]}+1))); do
         [ $i -eq $_VJL_POS ] && echo " >\e[31m${_VJL_STACK[$i]}\e[0m" || echo " ${_VJL_STACK[$i]}"
     done
     echo "pos: $_VJL_POS"
@@ -45,7 +45,10 @@ jump-older () {
     unsetopt AUTO_PUSHD
     if [ $_VJL_POS -lt $_VJL_JUMPS ]; then
         _VJL_POS=$(($_VJL_POS+1))
-        cd -q "${_VJL_STACK[$_VJL_POS]}"
+        cd -q "${_VJL_STACK[$_VJL_POS]}" 2>/dev/null
+        if [ $? -ne 0 ]; then
+            _VJL_STACK=(${_VJL_STACK[@]:0:$(($_VJL_POS-1))} ${_VJL_STACK[@]:0:$(($_VJL_POS))})
+        fi
         zle reset-prompt
         print_stack
     fi
@@ -56,7 +59,10 @@ jump-newer () {
     unsetopt AUTO_PUSHD
     if [ $_VJL_POS -gt 1 ]; then
         _VJL_POS=$(($_VJL_POS-1))
-        cd -q "${_VJL_STACK[$_VJL_POS]}"
+        cd -q "${_VJL_STACK[$_VJL_POS]}" 2>/dev/null
+        if [ $? -ne 0 ]; then
+            _VJL_STACK=(${_VJL_STACK[@]:0:$(($_VJL_POS-1))} ${_VJL_STACK[@]:$(($_VJL_POS))})
+        fi
         zle reset-prompt
         print_stack
     fi
