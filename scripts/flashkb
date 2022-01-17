@@ -1,4 +1,4 @@
-cd /home/liam/dev/qmk_firmware
+cd /home/liam/code/qmk_firmware
 echo "Building keyboard firmware"
 make planck/rev2:liamcustom && {
 	echo "Done"
@@ -11,5 +11,5 @@ make planck/rev2:liamcustom && {
 
 	echo -n "\nFlashing firmware..."
 
-	sudo avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:/home/liam/dev/qmk_firmware/planck_rev2_liamcustom.hex
+	sudo avrdude -p atmega32u4 -P /dev/ttyACM0 -c avr109 -U flash:w:/home/liam/code/qmk_firmware/planck_rev2_liamcustom.hex
 }
