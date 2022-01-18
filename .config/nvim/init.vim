@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'junegunn/fzf.vim'
 Plug 'XadillaX/json-formatter.vim'
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 set encoding=UTF-8
