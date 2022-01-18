@@ -48,6 +48,7 @@ jump-older () {
         cd -q "${_VJL_STACK[$_VJL_POS]}" 2>/dev/null
         if [ $? -ne 0 ]; then
             _VJL_STACK=(${_VJL_STACK[@]:0:$(($_VJL_POS-1))} ${_VJL_STACK[@]:0:$(($_VJL_POS))})
+            jump-older
         fi
         zle reset-prompt
         print_stack
@@ -62,6 +63,7 @@ jump-newer () {
         cd -q "${_VJL_STACK[$_VJL_POS]}" 2>/dev/null
         if [ $? -ne 0 ]; then
             _VJL_STACK=(${_VJL_STACK[@]:0:$(($_VJL_POS-1))} ${_VJL_STACK[@]:$(($_VJL_POS))})
+            jump-newer
         fi
         zle reset-prompt
         print_stack
