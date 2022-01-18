@@ -18,7 +18,7 @@ source /usr/share/fzf/completion.zsh
 # Custom scripts
 source $ZDOTDIR/keybindings.zsh
 source $ZDOTDIR/addons/vim-edit.zsh
-source $ZDOTDIR/addons/vim-jump-list.zsh
+source $ZDOTDIR/addons/back-stack.zsh
 source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/prompt.zsh
 PS1="\$(_prompt)"
