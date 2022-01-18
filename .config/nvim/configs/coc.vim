@@ -21,3 +21,6 @@ endfunction
 inoremap <silent><expr> <Tab>  pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 
+" Use enter to confirm completions, rather than C-y. Confirming completions
+" allows CoC to perform auto imports of classes, etc.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"

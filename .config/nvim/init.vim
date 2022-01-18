@@ -60,8 +60,6 @@ so ~/.config/nvim/configs/colorizer.vim
 so ~/.config/nvim/configs/nerdtree.vim
 so ~/.config/nvim/configs/coc.vim
 
-let mapleader=' '
-
 noremap j h
 noremap k j
 noremap l k
@@ -72,7 +70,6 @@ noremap zk zj
 noremap zl zk
 noremap z; zl
 
-"
 " Window splits
 "
 " Use Ctrl+(arrow key) for moving splits
@@ -93,7 +90,6 @@ noremap <S-Right>   <C-W>5>
 " Open new split vertically
 noremap <C-w>N <C-w>n<C-w>L
 
-
 " Same as ~/.config/zsh/jump-list.zsh to avoid breaking Tab Completion
 noremap <C-I> <nop>
 noremap <C-L> <C-I>
@@ -111,9 +107,6 @@ noremap N Nzz
 " Remap command/search replay keys
 noremap , ;
 noremap < ,
-
-" Exit Terminal Mode with ESC
-tnoremap <leader><ESC> <C-\><C-n>
 
 " Reset cursor on exit/suspend
 autocmd VimLeave,VimSuspend * set guicursor=a:hor20
