@@ -5,9 +5,15 @@
 setopt AUTO_PUSHD
 _VJL_POS=1
 _VJL_JUMPS=0
-_VJL_STACK=($(pwd))
+_VJL_HISTFILE=~/.local/share/zsh/back-stack_history
+_VJL_STACK=( $(pwd) )
 _VJL_BRANCH_STRAT='insert'
 _VJL_DEBUG=0
+
+# Add the back stack history to the stack if SHARE_HISTORY is set
+if [ $options[sharehistory] = 'on' ]; then
+    _VJL_STACK+=( $(IFS=$'\n' cat "$_VJL_HISTFILE") )
+fi
 
 print_stack () {
     [ $_VJL_DEBUG -ne 1 ] && return
@@ -37,6 +43,12 @@ chpwd () {
     else
         echo "_VJL_BRANCH_STRAT was '$_VJL_BRANCH_STRAT'. Expected one of 'prepend','discard','insert'."
     fi
+
+    # Update the history file (only up to 100 entries)
+    if [ $options[sharehistory] = 'on' ]; then
+        printf "%s\n" "${_VJL_STACK[@]}" | head -n 100 > "$_VJL_HISTFILE"
+    fi
+
     _VJL_JUMPS=${#_VJL_STACK[@]}
     print_stack
 }
