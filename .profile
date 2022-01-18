@@ -42,7 +42,6 @@ export FZF_DEFAULT_OPTS="--color=16 --cycle --info=inline --reverse --border=rou
 
 
 # Single use commands
-xinput --set-prop 'pointer:Logitech MX Ergo' 'libinput Accel Speed' -0.99
 feh --bg-fill /usr/share/pixmaps/backgrounds/abstract-background.jpg
 
 
