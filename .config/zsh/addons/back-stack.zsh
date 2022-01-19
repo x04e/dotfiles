@@ -4,7 +4,6 @@
 
 setopt AUTO_PUSHD
 _VJL_POS=1
-_VJL_JUMPS=0
 _VJL_HISTFILE=~/.local/share/zsh/back-stack_history
 _VJL_STACK=( $(pwd) )
 _VJL_BRANCH_STRAT='insert'
@@ -15,6 +14,7 @@ if [ $options[sharehistory] = 'on' ]; then
     _VJL_STACK+=( $(IFS=$'\n' cat "$_VJL_HISTFILE") )
 fi
 
+
 print_stack () {
     [ $_VJL_DEBUG -ne 1 ] && return
     echo
@@ -23,6 +23,7 @@ print_stack () {
     done
     echo "pos: $_VJL_POS"
 }
+print_stack
 
 # cd -q is used below to hide from zsh's chpwd functions
 chpwd () {
@@ -49,13 +50,12 @@ chpwd () {
         printf "%s\n" "${_VJL_STACK[@]}" | head -n 100 > "$_VJL_HISTFILE"
     fi
 
-    _VJL_JUMPS=${#_VJL_STACK[@]}
     print_stack
 }
 
 jump-older () {
     unsetopt AUTO_PUSHD
-    if [ $_VJL_POS -lt $_VJL_JUMPS ]; then
+    if [ $_VJL_POS -lt ${#_VJL_STACK[@]} ]; then
         _VJL_POS=$(($_VJL_POS+1))
         cd -q "${_VJL_STACK[$_VJL_POS]}" 2>/dev/null
         if [ $? -ne 0 ]; then
