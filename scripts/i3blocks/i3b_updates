@@ -1,7 +1,7 @@
 #!/bin/sh
 
 [[ -z "${BLOCK_BUTTON}" ]] || {
-  i3-msg exec 'urxvt -e zsh -c "yay --answerclean All --answerdiff None -Syu"' 2>&1 > /dev/null && pkill -SIGRTMIN+11 i3blocks;
+  i3-msg exec 'alacritty -e zsh -c "yay --answerclean All --answerdiff None -Syu"' 2>&1 > /dev/null && pkill -SIGRTMIN+11 i3blocks;
 }
 
 echo "$(checkupdates | wc -l) "
