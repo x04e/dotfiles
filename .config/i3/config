@@ -38,9 +38,9 @@ bar {
     position bottom
     strip_workspace_numbers yes
     font pango:FantasqueSansMono Nerd Font Mono 14
-    i3bar_command i3bar -t
+    i3bar_command i3bar
     colors {
-        background "#00000000"
+        background "#121212"
         #                    border    backgrnd  text
         focused_workspace   "#282828" "#282828" "#ebdbb2"
         active_workspace    "#282828" "#282828" "#ebdbb2"
