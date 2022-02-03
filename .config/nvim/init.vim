@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
-Plug 'chrisbra/Colorizer'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'

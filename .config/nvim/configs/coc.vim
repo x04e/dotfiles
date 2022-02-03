@@ -3,6 +3,12 @@
 let g:coc_data_home = '~/.config/nvim/coc'
 let g:coc_global_extensions = [
     \'coc-json',
+    \'coc-pairs',
+    \'coc-prettier',
+    \'coc-highlight',
+    \'coc-css',
+    \'coc-html',
+    \'coc-xml',
     \'coc-java',
     \'coc-tsserver',
     \'coc-eslint',
