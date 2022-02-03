@@ -11,7 +11,12 @@ _VJL_DEBUG=0
 
 # Add the back stack history to the stack if SHARE_HISTORY is set
 if [ $options[sharehistory] = 'on' ]; then
-    _VJL_STACK+=( $(IFS=$'\n' cat "$_VJL_HISTFILE") )
+    if [ -f $_VJL_HISTFILE ]; then
+        IFS=$'\n'
+        _VJL_STACK+=( $(cat $_VJL_HISTFILE) )
+    else
+        touch $_VJL_HISTFILE
+    fi
 fi
 
 
@@ -47,7 +52,7 @@ chpwd () {
 
     # Update the history file (only up to 100 entries)
     if [ $options[sharehistory] = 'on' ]; then
-        printf "%s\n" "${_VJL_STACK[@]}" | head -n 100 > "$_VJL_HISTFILE"
+        printf "%s\n" "${_VJL_STACK[@]}" | head -n 20 > "$_VJL_HISTFILE"
     fi
 
     print_stack
