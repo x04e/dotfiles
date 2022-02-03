@@ -1,0 +1,1 @@
+find \( -path "./discord/*" -or -path "./libreoffice/*" -or -path "./Code - OSS/*" -prune \) -or \( -type d -exec sh -c 'printf "%s/\n" "$0"' {} \; -or -print \)
