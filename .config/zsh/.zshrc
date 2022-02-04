@@ -17,6 +17,9 @@ autoload -U colors && colors
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# Haskell GHCUP
+source /home/liam/.ghcup/env
+
 # Custom scripts
 source $ZDOTDIR/keybindings.zsh
 source $ZDOTDIR/addons/vim-edit.zsh
