@@ -3,6 +3,7 @@
 !.config/
 .config/*
 !.config/alacritty
+!.config/picom/
 !.config/git
 !.config/nvim/init.vim
 .config/nvim/autoload/
