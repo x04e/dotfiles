@@ -53,7 +53,7 @@ syntax on
 autocmd FileType help setlocal nolist nospell number relativenumber
 
 " Autosave on edit, unless the buffer is readonly/doesn't have a name
-autocmd TextChanged,TextChangedI <buffer> if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
+autocmd TextChanged,TextChangedI * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
 
 " Disable spellcheck underlining in terminal mode and start in insert mode
 autocmd TermOpen * | setlocal nospell | startinsert
