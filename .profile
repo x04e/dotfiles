@@ -3,7 +3,7 @@
 # Globals
 export SHELL="zsh"
 export TERMINAL="alacritty"
-export BROWSER="firefox"
+export WEBBROWSER="chromium"
 export EDITOR="vim"
 export VISUAL=$EDITOR
 
