@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd ~/music
 mpc repeat on
 next=$(fd --strip-cwd-prefix | sort | uiselect)
