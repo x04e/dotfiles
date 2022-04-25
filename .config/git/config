@@ -5,8 +5,9 @@
 	a = add
 	ps = push
 	pl = pull
-	rs = !git reset --hard HEAD && git clean -df
+	rs = git reset --hard HEAD
 	lg = log --oneline --all --graph --decorate
+	st = stash -u
 [user]
 	name = Liam Hilliard
 	email = liam.h.-@hotmail.com
