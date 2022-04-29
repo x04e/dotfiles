@@ -5,9 +5,11 @@
 !.config/alacritty
 !.config/picom/
 !.config/git
-!.config/nvim/init.vim
+!.config/nvim/
+!.config/nvim/*
 .config/nvim/autoload/
 .config/nvim/plugged/
+.config/nvim/spell/
 !.config/i3/
 !.config/i3blocks/
 !.Xdefaults

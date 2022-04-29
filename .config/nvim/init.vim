@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
@@ -16,7 +17,7 @@ set encoding=UTF-8
 set nocompatible
 set termguicolors
 set background=dark
-colorscheme gruvbox
+colorscheme onedark
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -61,6 +62,7 @@ autocmd TermOpen * | setlocal nospell | startinsert
 so ~/.config/nvim/configs/colorizer.vim
 so ~/.config/nvim/configs/nerdtree.vim
 so ~/.config/nvim/configs/coc.vim
+so ~/.config/nvim/configs/lightline.vim
 
 noremap j h
 noremap k j
