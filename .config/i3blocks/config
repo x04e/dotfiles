@@ -16,18 +16,6 @@ interval=once
 
 #-------------#
 
-[firefox_app]
-full_text=" <span size=\"x-large\"></span> "
-markup=pango
-command=[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec firefox 2>&1 > /dev/null;
-interval=once
-
-[terminal_app]
-full_text=" <span size=\"x-large\"></span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec urxvt 2>&1 > /dev/null;
-markup=pango
-interval=once
-
 [vpn_app]
 full_text=" <span size=\"x-large\">旅</span> "
 command=[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec pia-client 2>&1 > /dev/null;
@@ -101,13 +89,6 @@ interval=5
 [separator]
 full_text=
 #-------------#
-
-[weather]
-command=~/scripts/i3blocks/i3b_weather
-interval=3600 #hourly
-
-[separator]
-full_text=
 
 [time_icon]
 full_text=" <span size=\"x-large\"></span> "
