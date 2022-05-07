@@ -29,6 +29,15 @@ exec --no-startup-id nm-applet # NetworkManager tray tool
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
+set $color0 "#121212"
+set $color1 "#282828"
+set $color2 "#ebdbb2"
+set $color3 "#b9aa90"
+set $color4 "#a89984"
+set $color5 "#928374"
+set $color6 "#3a3836"
+set $color7 "#31302f"
+
 ### I3 BAR
 bar {
     mode hide
@@ -40,24 +49,25 @@ bar {
     font pango:FantasqueSansMono Nerd Font Mono 14
     i3bar_command i3bar
     colors {
-        background "#121212"
-        #                    border    backgrnd  text
-        focused_workspace   "#282828" "#282828" "#ebdbb2"
-        active_workspace    "#282828" "#282828" "#ebdbb2"
-        inactive_workspace  "#282828" "#282828" "#a89984"
-        urgent_workspace    "#282828" "#282828" "#a89984"
-        binding_mode        "#282828" "#282828" "#a89984"
+
+        background $color0
+        #                   border  bg      text
+        focused_workspace   $color1 $color1 $color2
+        active_workspace    $color1 $color1 $color2
+        inactive_workspace  $color1 $color1 $color4
+        urgent_workspace    $color1 $color1 $color4
+        binding_mode        $color1 $color1 $color4
     }
 }
 
 
 ### WINDOW COLOURS
-#                       border    backgrnd  text      indicator child_border
-client.focused          "#3a3836" "#3a3836" "#ebdbb2" "#b9aa90" "#928374"
-client.focused_inactive "#3a3836" "#3a3836" "#a89984" "#3a3836" "#3a3836"
-client.unfocused        "#282828" "#282828" "#928374" "#31302f" "#282828"
-client.urgent           "#282828" "#282828" "#928374" "#31302f" "#282828"
-client.placeholder      "#282828" "#282828" "#928374" "#31302f" "#282828"
+#                       border  bg      text    indctr  child_border
+client.focused          $color6 $color6 $color2 $color3 $color5
+client.focused_inactive $color6 $color6 $color4 $color6 $color6
+client.unfocused        $color1 $color1 $color5 $color7 $color1
+client.urgent           $color1 $color1 $color5 $color7 $color1
+client.placeholder      $color1 $color1 $color5 $color7 $color1
 
 ### RULES
 for_window [all] border pixel 2 # Disable titlebars
