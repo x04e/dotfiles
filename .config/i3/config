@@ -29,14 +29,14 @@ exec --no-startup-id nm-applet # NetworkManager tray tool
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
-set $color0 "#121212"
-set $color1 "#282828"
-set $color2 "#ebdbb2"
-set $color3 "#b9aa90"
-set $color4 "#a89984"
-set $color5 "#928374"
-set $color6 "#3a3836"
-set $color7 "#31302f"
+set $color0 "#1e2127"
+set $color1 "#21242b"
+set $color2 "#abb2bf"
+set $color3 "#828997"
+set $color4 "#5c6370"
+set $color5 "#424852"
+set $color6 "#24282f"
+set $color7 "#282c34"
 
 ### I3 BAR
 bar {
