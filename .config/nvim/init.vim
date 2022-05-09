@@ -31,7 +31,7 @@ set mouse=a
 set undofile
 set hidden
 set incsearch
-set spell
+set nospell
 set ignorecase
 set clipboard=unnamedplus
 set list
