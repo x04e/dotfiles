@@ -1,5 +1,5 @@
 # Custom i3blocks config. Most sections are scripts from ~/scripts/i3blocks/
-background=#1e2127
+#background=#3e4452
 color=#abb2bf
 align=center
 separator=false

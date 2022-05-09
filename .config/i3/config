@@ -29,55 +29,71 @@ exec --no-startup-id nm-applet # NetworkManager tray tool
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
-set $color0 "#1e2127"
-set $color1 "#21242b"
-set $color2 "#abb2bf"
-set $color3 "#828997"
-set $color4 "#5c6370"
-set $color5 "#424852"
-set $color6 "#24282f"
-set $color7 "#282c34"
+### I3 BAR COLOURS
+set $cBarBg             "#21242b"
+set $cBarActiveTxt      "#282c34"
+set $cBarActiveBg       "#98c375"
+set $cBarInactiveBg     "#3e4452"
+set $cBarInactiveTxt    "#abb2bf"
 
 ### I3 BAR
 bar {
     mode hide
-    hidden_state show # Show the bar until ~/.config/i3blocks/config:12 hides it
+    # Show the bar until ~/.config/i3blocks/config:12 hides it
+    hidden_state show
     modifier $mod
-    status_command i3blocks # see ~/.config/i3blocks/config
+    # see ~/.config/i3blocks/config
+    status_command i3blocks
     position bottom
     strip_workspace_numbers yes
     font pango:FantasqueSansMono Nerd Font Mono 14
     i3bar_command i3bar
     colors {
 
-        background $color0
-        #                   border  bg      text
-        focused_workspace   $color1 $color1 $color2
-        active_workspace    $color1 $color1 $color2
-        inactive_workspace  $color1 $color1 $color4
-        urgent_workspace    $color1 $color1 $color4
-        binding_mode        $color1 $color1 $color4
+        background $cBarBg
+        #                   border  background      text
+        focused_workspace   $cBarBg $cBarActiveBg   $cBarActiveTxt
+        active_workspace    $cBarBg $cBarActiveTxt  $cBarActiveTxt
+        inactive_workspace  $cBarBg $cBarInactiveBg $cBarInactiveTxt
+        urgent_workspace    $cBarBg $cBarInactiveBg $cBarInactiveTxt
+        binding_mode        $cBarBg $cBarInactiveBg $cBarInactiveTxt
     }
 }
 
 
 ### WINDOW COLOURS
-#                       border  bg      text    indctr  child_border
-client.focused          $color6 $color6 $color2 $color3 $color5
-client.focused_inactive $color6 $color6 $color4 $color6 $color6
-client.unfocused        $color1 $color1 $color5 $color7 $color1
-client.urgent           $color1 $color1 $color5 $color7 $color1
-client.placeholder      $color1 $color1 $color5 $color7 $color1
+set $cWindowBg      "#282c34"
+set $cActive        "#69717f"
+set $cActiveInd     "#525863"
+set $cActiveTxt     "#eeeeee"
+set $cInactive      "#3e4452"
+set $cInactiveTxt   "#abb2bf"
+set $cOther         "#3e4452"
+set $cOtherTxt      "#abb2bf"
+# see https://thomashunter.name/i3-configurator for reference
+#                       border      background  text            indctr      child_border
+client.focused          $cActive    $cActive    $cActiveTxt     $cActiveInd $cActive
+client.focused_inactive $cInactive  $cInactive  $cInactiveTxt   $cInactive  $cInactive
+client.focused_inactive $cOther     $cOther     $cOtherTxt      $cOther     $cOther
+client.unfocused        $cOther     $cOther     $cOtherTxt      $cOther     $cOther
+client.urgent           $cOther     $cOther     $cOtherTxt      $cOther     $cOther
+client.placeholder      $cOther     $cOther     $cOtherTxt      $cOther     $cOther
+client.background       $cWindowBg
 
 ### RULES
-for_window [all] border pixel 2 # Disable titlebars
-for_window [class="shutter"] floating enable
+# Disable titlebars
+for_window [all] border pixel 3
+for_window [instance="Shutter"] floating enable
+for_window [class="Shutter"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="PlayOnLinux"] floating enable
 for_window [class="^PlayOnLinux$"] floating disable
-for_window [class="steam_app_*"] border pixel 0, move container to workspace $ws09; workspace $ws09 # Note comma to set border and move container simultaneously. Then semicolon to switch workspace afterwards
-for_window [title="win0"] floating enable # Intellij
-for_window [instance="FLOAT"] floating enable # Custom selection windows
+# Note comma to set border and move container simultaneously. Then semicolon to switch workspace afterwards
+for_window [class="steam_app_*"] border pixel 0, move container to workspace $ws09; workspace $ws09
+# Intellij
+for_window [title="win0"] floating enable
+# Custom selection window
+for_window [instance="FLOAT"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -101,14 +117,19 @@ bindsym XF86AudioLowerVolume exec --no-startup-id mpc vol -5 && $refresh_i3statu
 bindsym XF86AudioStop        exec --no-startup-id   mpc toggle &&  $refresh_i3status
 bindsym XF86AudioPlay        exec --no-startup-id   mpc toggle &&  $refresh_i3status
 # Programs and scripts
-bindsym $mod+Return exec $TERMINAL # Shell terminal emulator
+bindsym $mod+Return exec $TERMINAL
 bindsym $mod+f exec $WEBBROWSER
-bindsym $mod+d exec runprogram # Program launcher
-bindsym $mod+m exec music # Music selection
-bindsym $mod+n exec nautilus
-bindsym $mod+p exec shutter # Screenshots
-bindsym $mod+Shift+Tab exec dm-tool switch-to-greeter # Lock screen
-bindsym $mod+Tab exec ~/scripts/powermgmt # Shutdown, Restart, Sleep, Lock menu
+# Program launcher
+bindsym $mod+d exec runprogram
+# Music selection
+bindsym $mod+m exec music
+bindsym $mod+n exec thunar
+# Screenshots
+bindsym $mod+p exec shutter
+# Lock screen
+bindsym $mod+Shift+Tab exec dm-tool switch-to-greeter
+# Shutdown, Restart, Sleep, Lock menu
+bindsym $mod+Tab exec ~/scripts/powermgmt
 # I3 bindings
 bindsym $mod+q kill
 bindsym $mod+e scratchpad show
@@ -133,7 +154,8 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-bindsym $mod+o move workspace to output left # Move workspace to other monitor
+# Move workspace to other monitor
+bindsym $mod+o move workspace to output left
 # Parent/Child container focus
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
