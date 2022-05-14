@@ -33,7 +33,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 ### I3 BAR COLOURS
 set $cBarBg             "#21242b"
 set $cBarActiveTxt      "#282c34"
-set $cBarActiveBg       "#98c375"
+set $cBarActiveBg       "#c678dd"
 set $cBarInactiveBg     "#3e4452"
 set $cBarInactiveTxt    "#abb2bf"
 
