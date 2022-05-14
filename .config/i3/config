@@ -1,5 +1,5 @@
 ### SETUP
-font pango:FantasqueSansMono Nerd Font Mono 10
+font pango:FantasqueSansMono Nerd Font Mono 9
 default_orientation horizontal
 
 set $mod Mod1
@@ -10,15 +10,15 @@ set $down k
 set $left j
 set $right semicolon
 
-set $ws01 "[1]"
-set $ws02 "[2]"
-set $ws03 "[3]"
-set $ws04 "[4]"
-set $ws05 "[5]"
-set $ws06 "[6]"
-set $ws07 "[7]"
-set $ws08 "[8]"
-set $ws09 "[9]"
+set $ws01 " 1 "
+set $ws02 " 2 "
+set $ws03 " 3 "
+set $ws04 " 4 "
+set $ws05 " 5 "
+set $ws06 " 6 "
+set $ws07 " 7 "
+set $ws08 " 8 "
+set $ws09 " 9 "
 
 set $refresh_i3status killall -SIGUSR1 i3blocks
 gaps inner 0
@@ -89,6 +89,7 @@ for_window [class="Shutter"] floating enable
 for_window [class="Yad"] floating enable
 for_window [class="PlayOnLinux"] floating enable
 for_window [class="^PlayOnLinux$"] floating disable
+for_window [class="Thunar"] floating enable
 # Note comma to set border and move container simultaneously. Then semicolon to switch workspace afterwards
 for_window [class="steam_app_*"] border pixel 0, move container to workspace $ws09; workspace $ws09
 # Intellij
