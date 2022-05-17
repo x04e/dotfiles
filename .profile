@@ -52,4 +52,5 @@ fi
 # Background processes
 [ -z "$(ps --no-header -C 'mpd')" ] && mpd --no-daemon &
 [ -z "$(ps --no-header -C 'picom')" ] && picom &
+[ -z "$(ps --no-header -C 'thunar')" ] && thunar --daemon &
 
