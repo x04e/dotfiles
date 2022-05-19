@@ -1,5 +1,5 @@
 #!/bin/sh
 
 alacritty --class FLOAT,Alacritty -o "font.size=14" -o "window.opacity=1.0" \
-    -e sh -c "cat $0 | fzf < /proc/$$/fd/0 > /proc/$$/fd/1"
+    -e sh -c "fzf < /proc/$$/fd/0 > /proc/$$/fd/1"
 
