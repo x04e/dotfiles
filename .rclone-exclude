@@ -1,7 +1,13 @@
 # RClone exclude
+
+# Clone rootdir patterns (/ means the root directory rclone is cloning, not the filesystem root)
 /.*
 /.*/
 /videos/
 /music/
-/node_modules/
+/vmware/
+
+# Directory name patterns (applies to any subfolders)
+.git/
+node_modules/
 
