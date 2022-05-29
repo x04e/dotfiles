@@ -1,0 +1,7 @@
+# RClone exclude
+/.*
+/.*/
+/videos/
+/music/
+/node_modules/
+

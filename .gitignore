@@ -18,4 +18,5 @@
 !scipts/*
 !.zshenv
 !.config/zsh
+!.rclone-exclude
 
