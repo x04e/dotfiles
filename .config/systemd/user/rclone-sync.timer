@@ -1,0 +1,11 @@
+[Unit]
+Description=RClone backup job
+Requires=rclone-sync.service
+
+[Timer]
+OnBootSec=10m
+OnUnitActiveSec=30m
+
+[Install]
+WantedBy=timers.target
+

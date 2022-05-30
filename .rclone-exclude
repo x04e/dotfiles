@@ -5,7 +5,11 @@
 /.*/
 /videos/
 /music/
+/Music/
+/downloads/
+/Downloads/
 /vmware/
+/code/repos/
 
 # Directory name patterns (applies to any subfolders)
 .git/

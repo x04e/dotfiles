@@ -1,0 +1,11 @@
+[Unit]
+Description=RClone backup job
+Wants=rclone-sync.timer
+
+[Service]
+Type=simple
+ExecStart=/home/liam/scripts/rclone-sync
+
+[Install]
+WantedBy=default.target
+
