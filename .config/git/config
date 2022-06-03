@@ -1,5 +1,5 @@
 [alias]
-	s = status
+	s = status --short
 	d = diff
 	c = commit
 	a = add
