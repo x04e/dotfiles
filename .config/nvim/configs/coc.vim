@@ -35,3 +35,10 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Fix inline diagnostic messages without background colours
+"hi def link CocErrorVirtualText CocListRedGrey
+"hi def link CocWarnVirtualText CocListYellowGrey
+"hi def link CocInfoVirtualText CocListBlueGrey
+"hi def link CocHintVirtualText CocListCyanGrey
+
