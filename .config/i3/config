@@ -129,9 +129,9 @@ bindsym $mod+n exec thunar
 # Screenshots
 bindsym $mod+p exec shutter
 # Lock screen
-bindsym $mod+Shift+Tab exec dm-tool switch-to-greeter
+bindsym $mod+Tab exec dm-tool switch-to-greeter
 # Shutdown, Restart, Sleep, Lock menu
-bindsym $mod+Tab exec ~/scripts/powermgmt
+bindsym $mod+Shift+Tab exec ~/scripts/powermgmt
 # I3 bindings
 bindsym $mod+q kill
 bindsym $mod+e scratchpad show
