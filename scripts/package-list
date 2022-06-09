@@ -1,0 +1,3 @@
+#!/bin/sh
+yay -Qentt > ~/package-list.txt
+yay -Qemtt > ~/package-list.txt

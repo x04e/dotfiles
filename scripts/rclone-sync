@@ -1,0 +1,8 @@
+#!/bin/sh
+
+flock -n /tmp/rclone-sync.lock \
+    rclone --verbose \
+        --transfers 20 \
+        --retries 5 \
+        --exclude-from ~/.rclone-exclude \
+        sync ~/ odenc:

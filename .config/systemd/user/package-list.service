@@ -1,0 +1,11 @@
+[Unit]
+Description=Writes a list of user-installed packages to disk
+Wants=package-list.timer
+
+[Service]
+Type=simple
+ExecStart=/home/liam/scripts/package-list
+
+[Install]
+WantedBy=default.target
+

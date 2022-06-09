@@ -1,0 +1,11 @@
+[Unit]
+Description=Writes a list of user-installed packages to disk
+Requires=package-list.service
+
+[Timer]
+OnBootSec=10m
+OnUnitActiveSec=30m
+
+[Install]
+WantedBy=timers.target
+
