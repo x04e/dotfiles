@@ -4,4 +4,12 @@
   i3-msg exec 'alacritty -e zsh -c "yay --answerclean All --answerdiff None -Syu"' 2>&1 > /dev/null && pkill -SIGRTMIN+11 i3blocks;
 }
 
-echo "$(checkupdates | wc -l) "
+NUM_UPDATES="$(checkupdates | wc -l) "
+echo "$NUM_UPDATES" #i3blocks full text
+echo "$NUM_UPDATES" #i3blocks short text (same as full text)
+
+if [ "$NUM_UPDATES" -ge 100 ]; then
+    echo "#e06c75"
+elif [ "$NUM_UPDATES" -ge 50 ]; then
+    echo "#e5c07b"
+fi
