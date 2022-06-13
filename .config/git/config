@@ -5,7 +5,7 @@
 	a = add
 	ps = push
 	pl = pull
-	rs = git reset --hard HEAD
+	rs = reset --hard HEAD
 	lg = log --oneline --all --graph --decorate
 	st = stash -u
 [user]
