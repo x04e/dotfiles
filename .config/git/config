@@ -13,3 +13,5 @@
 	email = liam.h.-@hotmail.com
 [init]
 	defaultBranch = main
+[push]
+	followTags = true
