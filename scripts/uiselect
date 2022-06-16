@@ -1,5 +1,13 @@
 #!/bin/sh
 
-alacritty --class FLOAT,Alacritty -o "font.size=14" -o "window.opacity=1.0" \
+# Opens up an Alacritty FZF picker
+# The first argument may be a string to use as the window title
+TITLE="$1"
+[[ -z "$TITLE" ]] && TITLE="Select"
+
+alacritty --class I3_FLOATING_WINDOW,Alacritty \
+    -o "font.size=14" \
+    -o "window.opacity=1.0" \
+    -o "window.title=$TITLE" \
     -e sh -c "fzf < /proc/$$/fd/0 > /proc/$$/fd/1"
 

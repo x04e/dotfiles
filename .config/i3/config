@@ -1,5 +1,5 @@
 ### SETUP
-font pango:FantasqueSansMono Nerd Font Mono 9
+font pango:FantasqueSansMono Nerd Font Mono 10
 default_orientation horizontal
 
 set $mod Mod1

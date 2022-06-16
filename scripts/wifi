@@ -1,5 +1,7 @@
 #!/bin/sh
+
 nmcli -f SSID,RATE,BARS,SECURITY device wifi list \
-	| awk '{print $1}' \
-	| uiselect \
-	| xargs nmcli device wifi connect
+    | awk '{print $1}' \
+    | uiselect "Connect to Wifi network" \
+    | xargs nmcli device wifi connect
+

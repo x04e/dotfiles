@@ -1,4 +1,4 @@
 #!/bin/sh
 PATH=$PATH:$HOME/Android/Sdk/emulator
 
-emulator -list-avds | uiselect | xargs -I {} emulator -avd {} &
+emulator -list-avds | uiselect "Select AVD" | xargs -I {} emulator -avd {} &

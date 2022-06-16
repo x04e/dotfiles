@@ -1,7 +1,9 @@
 #!/bin/sh
 bluetoothctl power on
+
 bluetoothctl devices \
-	| sed 's/Device//g' \
-	| uiselect \
-	| awk '{print $2}' \
-	| xargs bluetoothctl connect 
+    | sed 's/Device//g' \
+    | uiselect "Connect Bluetooth device" \
+    | awk '{print $2}' \
+    | xargs bluetoothctl connect
+
