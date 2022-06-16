@@ -2,6 +2,7 @@
 !.gitignore
 !.config/
 .config/*
+!.config/chromium-flags.conf
 !.config/alacritty
 !.config/picom/
 !.config/git
