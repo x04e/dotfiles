@@ -1,0 +1,34 @@
+#!/bin/sh
+
+startTime=$SECONDS
+
+yay --answerclean All --answerdiff None -Syu || {
+    echo "Exiting";
+    sleep 1;
+    exit;
+}
+
+totalTime=$(($SECONDS - $startTime))
+
+
+timeout=5
+read -t $timeout -p "Update completed in $totalTime seconds. Do you want to restart? [y/n] " yn \
+    || echo -e "\nPrompt timed out after $timeout seconds"
+
+echo
+case $yn in
+    [yY]* )
+        echo -n "Rebooting"
+        for (( i=0; i < 5; i++ )); do
+            sleep .6; echo -n "."
+        done
+        echo "REBOOTED"
+        ;;
+    * )
+        echo "Exiting"
+        sleep 1
+        exit
+        ;;
+esac
+
+
