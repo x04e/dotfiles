@@ -1,7 +1,8 @@
 #!/bin/sh
 
 [[ -z "${BLOCK_BUTTON}" ]] || {
-  i3-msg exec 'alacritty -e zsh -c "yay --answerclean All --answerdiff None -Syu"' 2>&1 > /dev/null && pkill -SIGRTMIN+11 i3blocks;
+    i3-msg exec 'alacritty --class I3_FLOATING_WINDOW -o "window.dimensions.lines=40" -o "window.dimensions.columns=120" -o "font.size=14" -e zsh -c "yay --answerclean All --answerdiff None -Syu"' \
+    2>&1 > /dev/null && pkill -SIGRTMIN+11 i3blocks;
 }
 
 NUM_UPDATES="$(checkupdates | wc -l) "
