@@ -6,8 +6,9 @@
 	ps = push
 	pl = pull
 	rs = reset --hard HEAD
-	lg = log --oneline --all --graph --decorate
 	st = stash -u
+	l = log --oneline --decorate --graph --author-date-order
+	la = log --oneline --decorate --graph --author-date-order --all
 [user]
 	name = Liam Hilliard
 	email = liam.h.-@hotmail.com
