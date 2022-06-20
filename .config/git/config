@@ -1,14 +1,24 @@
 [alias]
 	s = status --short
-	d = diff
+	st = status
+	d = diff --word-diff=color
+	sh = show --word-diff=color
 	c = commit
+	co = checkout
+	sw = switch
+	me = merge
+	de = describe --always --dirty=-dirty
 	a = add
 	ps = push
 	pl = pull
-	rs = reset --hard HEAD
+	rs = "!f(){ git reset --hard \"${1:-HEAD}\"; }; f"
+	re = rebase
+	rl = reflog
+	cp = cherry-pick
 	st = stash -u
 	l = log --oneline --decorate --graph --author-date-order
-	la = log --oneline --decorate --graph --author-date-order --all
+	ll = log --oneline --decorate --graph --author-date-order --all
+	la = log --oneline --decorate --graph --all
 [user]
 	name = Liam Hilliard
 	email = liam.h.-@hotmail.com
