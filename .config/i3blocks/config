@@ -18,7 +18,7 @@ interval=once
 
 [vpn_app]
 full_text=" <span size=\"x-large\">旅</span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || i3-msg exec pia-client 2>&1 > /dev/null;
+command=[[ -z "${BLOCK_BUTTON}" ]] || pia-client
 markup=pango
 interval=once
 
@@ -30,7 +30,7 @@ full_text=
 ## System Information (volume, CPU/MEM usage, temperature)
 [packages_icon]
 full_text=" <span size=\"x-large\"></span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_updates 2>&1 > /dev/null;
+command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_updates 2>&1 > /dev/null
 markup=pango
 interval=once
 
@@ -46,7 +46,7 @@ full_text=
 
 [volume_icon]
 full_text=" <span size=\"x-large\"></span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || (setsid pavucontrol &)
+command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_volume 2>&1 > /dev/null
 markup=pango
 interval=once
 
@@ -67,7 +67,7 @@ full_text=
 
 [cpu_icon]
 full_text=" <span size=\"x-large\"></span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_cpu 2>&1 > /dev/null;
+command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_cpu 2>&1 > /dev/null
 markup=pango
 interval=once
 
@@ -77,7 +77,7 @@ interval=5
 
 [memory_icon]
 full_text=" <span size=\"x-large\"></span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_memory 2>&1 > /dev/null;
+command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_memory 2>&1 > /dev/null
 markup=pango
 interval=once
 
@@ -109,7 +109,7 @@ markup=pango
 #command=bash ~/scripts/powermgmt
 # setsid runs a program in a new session, separate from the i3bar process
 # i3bar will be suspended when hidden, meaning this script will stop unless the bar is visible
-command=(setsid ~/scripts/powermgmt &)
+command=[[ -z "${BLOCK_BUTTON}" ]] || (setsid ~/scripts/powermgmt &)
 
 #-------------#
 [separator]

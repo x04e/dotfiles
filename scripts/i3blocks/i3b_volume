@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ -z "${BLOCK_BUTTON}" ]] || pavucontrol
+[[ -z "${BLOCK_BUTTON}" ]] || setsid pavucontrol
 
 get_volume (){
     echo $(pacmd list-sinks | sed '/\* index/,/volume/!d; /volume/!d; s/^.* \([0-9]\+%\).*$/\1/g')
