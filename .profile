@@ -44,8 +44,8 @@ export FZF_DEFAULT_OPTS="--color=16 --cycle --info=inline --reverse --border=rou
 
 
 # Single use commands
-if [ -f "/usr/share/pixmaps/backgrounds/solid-background.png" ]; then
-    feh --bg-fill /usr/share/pixmaps/backgrounds/solid-background.png
+if [ -f "/usr/share/pixmaps/backgrounds/background.png" ]; then
+    feh --bg-fill /usr/share/pixmaps/backgrounds/background.png
 fi
 
 
