@@ -31,5 +31,5 @@ HOSTS_FILE=/etc/hosts
 	echo "Added sites to /etc/hosts"
 }
 
-printf "    %s\n" "${BLOCKLIST[@]}"
+printf "	%s\n" "${BLOCKLIST[@]}"
 
