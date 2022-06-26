@@ -11,7 +11,7 @@ yay --answerclean All --answerdiff None -Syu || {
 totalTime=$(($SECONDS - $startTime))
 
 
-timeout=5
+timeout=10
 read -t $timeout -p "Update completed in $totalTime seconds. Do you want to restart? [y/n] " yn \
     || echo -e "\nPrompt timed out after $timeout seconds"
 
