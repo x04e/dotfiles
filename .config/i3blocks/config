@@ -16,15 +16,15 @@ interval=once
 
 #-------------#
 
-[vpn_app]
-full_text=" <span size=\"x-large\">旅</span> "
-command=[[ -z "${BLOCK_BUTTON}" ]] || pia-client
-markup=pango
-interval=once
+#[vpn_app]
+#full_text=" <span size=\"x-large\">旅</span> "
+#command=[[ -z "${BLOCK_BUTTON}" ]] || pia-client
+#markup=pango
+#interval=once
 
 #-------------#
-[separator]
-full_text=
+#[separator]
+#full_text=
 #-------------#
 
 ## System Information (volume, CPU/MEM usage, temperature)
