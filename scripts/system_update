@@ -22,6 +22,7 @@ case $yn in
         for (( i=0; i < 5; i++ )); do
             sleep .6; echo -n "."
         done
+        reboot
         echo "REBOOTED"
         ;;
     * )
