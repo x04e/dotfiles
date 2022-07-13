@@ -98,12 +98,6 @@ noremap <C-w>N <C-w>n<C-w>L
 noremap <C-I> <nop>
 noremap <C-L> <C-I>
 
-" Disable arrow key movement
-inoremap <Left> <nop>
-inoremap <Down> <nop>
-inoremap <Up> <nop>
-inoremap <Right> <nop>
-
 " Center the screen when searching
 noremap n nzz
 noremap N Nzz
