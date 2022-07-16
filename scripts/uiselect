@@ -6,8 +6,6 @@ TITLE="$1"
 [[ -z "$TITLE" ]] && TITLE="Select"
 
 alacritty --class I3_FLOATING_WINDOW,Alacritty \
-    -o "font.size=12" \
-    -o "window.opacity=1.0" \
     -o "window.title=$TITLE" \
     -e sh -c "fzf < /proc/$$/fd/0 > /proc/$$/fd/1"
 

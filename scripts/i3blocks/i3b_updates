@@ -1,5 +1,6 @@
 #!/bin/sh
 
+icon=''
 [[ -z "${BLOCK_BUTTON}" ]] || {
     i3-msg exec 'alacritty --class I3_FLOATING_WINDOW -o "window.dimensions.lines=40" -o "window.dimensions.columns=120" -o "font.size=12" -e ~/scripts/system_update' \
         2>&1 > /dev/null \
@@ -7,8 +8,8 @@
 }
 
 NUM_UPDATES="$(checkupdates | wc -l) "
-echo "$NUM_UPDATES" #i3blocks full text
-echo "$NUM_UPDATES" #i3blocks short text (same as full text)
+echo "<span size=\"x-large\">$icon</span> <span rise=\"3pt\">$NUM_UPDATES</span>" #i3blocks full text
+echo "<span size=\"x-large\">$icon</span> <span rise=\"3pt\">$NUM_UPDATES</span>" #i3blocks short text (same as full text)
 
 if [ "$NUM_UPDATES" -ge 100 ]; then
     echo "#e06c75"
