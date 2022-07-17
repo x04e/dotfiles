@@ -7,31 +7,30 @@ batDir="$pwrDir/BAT0"
 capacityFile="$pwrDir/BAT0/capacity"
 chargingFile="$pwrDir/AC0/online"
 
-chargingIcon="\u202dﮣ\u202c"
-echo -e '<>'
-[ -d "$batDir" ] || exit
+#[ -d "$batDir" ] || exit
 
 if [ ! -f "$capacityFile" -o ! -f "$chargingFile" ]; then
-    echo "BAT:??"
-    echo "BAT:??"
-    echo "#e06c75"
+    echo " BAT:?? "
+    echo " BAT:?? "
     exit
 fi
 
+batteryIcons=( "" "" "" "" "" "" "" "" "" "" )
+chargingIcon="\u202dﮣ\u202c"
+
+(( <($chargingFile) )) && charging=$(echo -e " <span rise=\"1pt\" size=\"small\">\u202dﮣ\u202c</span>")
+
 capacity=(( <"$capacityFile" ))
-charging=(( <"$chargingFile" ))
+if [ "$capacity" -ge 95 ]; then
+    echo " <span size=\"medium\" color=\"#00ff00\">${batteryIcons[9]}</span>$charging "
+else
+    if [ "$capacity" -gt 40 ]; then
+        echo " <span size=\"medium\">${batteryIcons[((capacity/10))]}</span>$charging "
+    elif [ "$capacity" -gt 10 ]; then
+        echo " <span size=\"medium\" color=\"#e5c07b\">${batteryIcons[((capacity/10))]}</span>$charging "
+    else
+        echo " <span size=\"medium\" color=\"#e06c75\">${batteryIcons[((capacity/10))]}</span>$charging "
+    fi
 
-# 
-# ﮣ
-# 
-
-
-#[[ $(</sys/class/power_supply/AC0/online) -eq 1 ]] && charging="ﮣ" || charging="ﮤ"
-# NOTE: \ufba3 and \ufba4 (plug and crossed-out plug icons above) are right-to-left characters, so we have to use unicode control characters to override their text direction
-# \u202d (LEFT-TO-RIGHT OVERRIDE) Overrides bidirectional text algorithm to display characters in left to right order
-# \u202c (POP DIRECTIONAL FORMATTING) Closing text direction tag
-#output="\u202d$capacity% $charging\u202c"
-
-#TODO: Set colour on capacity inticator based on battery percentage
-#echo -e "<span>$capacity%</span> \u202d$charging\u202c"
+fi
 
