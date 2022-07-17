@@ -7,7 +7,6 @@ export WEBBROWSER="chromium"
 export EDITOR="vim"
 export VISUAL=$EDITOR
 
-
 # XDG settings
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -15,20 +14,15 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 
-
 # PATH
 export PATH="$HOME/scripts:$PATH"
-export PATH="/opt/arduino-1.8.13:$PATH"
 export PATH="/opt/piavpn/bin:$PATH"
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+export PATH="$HOME/.local/bin:$PATH"
 
 # Node version manager
 export NVM_DIR="/home/liam/.nvm"
 source "$NVM_DIR/nvm.sh"
 export PATH="$PATH:$HOME/.local/lib/npm/bin"
-
 
 # Java
 export JAVA_HOME="/usr/lib/jvm/default"
