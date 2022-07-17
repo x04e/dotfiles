@@ -10,7 +10,7 @@ _VJL_BRANCH_STRAT='insert'
 _VJL_DEBUG=0
 
 # Add the back stack history to the stack if SHARE_HISTORY is set
-if [ $options[sharehistory] = 'on' ]; then
+if [[ -o sharehistory ]]; then
     if [ -f $_VJL_HISTFILE ]; then
         IFS=$'\n'
         _VJL_STACK+=( $(cat $_VJL_HISTFILE) )
