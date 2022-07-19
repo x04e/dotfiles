@@ -9,6 +9,7 @@
 !.config/nvim/
 !.config/nvim/*
 !.config/mpd/
+.config/nvim/coc
 .config/nvim/autoload/
 .config/nvim/plugged/
 .config/nvim/spell/

@@ -7,6 +7,7 @@ HISTFILE=$XDG_DATA_HOME/zsh/zsh_history
 [ -f $HISTFILE ] || mkdir -p $(dirname $HISTFILE)
 
 setopt ALIASES # expand aliases, even in non-interactive mode (like vim's ":!")
+setopt KSH_ARRAYS # arrays start at 0 (same as bash)
 setopt HIST_FIND_NO_DUPS #don't show duplicates in search
 setopt NO_HIST_BEEP #don't beep
 setopt SHARE_HISTORY #share history between terminals

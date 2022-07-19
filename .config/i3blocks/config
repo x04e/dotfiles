@@ -22,10 +22,27 @@ interval=once
 #markup=pango
 #interval=once
 
+[separator]
+full_text=
+
 #-------------#
-#[separator]
-#full_text=
+[bat2]
+full_text= <span rise="-5pt" size="250%"></span> <span rise="6pt" size="small">‭ﮣ‬</span> 
+#full_text= <span size="medium"></span> <span rise="1pt" size="small">‭ﮣ‬</span> 
+markup=pango
+
+[separator]
+full_text=
+
+[bat2]
+#full_text= <span size="xx-large"></span> <span rise="6pt" size="small">‭ﮣ‬</span> 
+full_text= <span size="medium"></span> <span rise="1pt" size="small">‭ﮣ‬</span> 
+markup=pango
+
 #-------------#
+
+[separator]
+full_text=
 
 ## System Information (volume, CPU/MEM usage, temperature)
 [packages_icon]
@@ -36,6 +53,7 @@ interval=once
 
 [packages]
 command=~/scripts/i3blocks/i3b_updates
+markup=pango
 interval=3600 # hourly
 signal=11
 
@@ -101,6 +119,12 @@ interval=1
 #-------------#
 [separator]
 full_text=
+#-------------#
+
+[battery]
+command=~/scripts/i3blocks/i3b_battery
+markup=pango
+interval=60
 #-------------#
 
 [power_options]

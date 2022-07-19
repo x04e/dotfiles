@@ -1,0 +1,15 @@
+#!/bin/sh
+
+NUM_UPDATES=$(date +"%S")
+echo $NUM_UPDATES
+echo $NUM_UPDATES
+
+if [ "$NUM_UPDATES" -lt 20 ]; then
+    echo "#ff0000"
+elif [ "$NUM_UPDATES" -lt 30 ]; then
+    echo "#0000ff"
+elif [ "$NUM_UPDATES" -lt 40 ]; then
+    echo "#00ff00"
+else
+    echo "#00ffff"
+fi
