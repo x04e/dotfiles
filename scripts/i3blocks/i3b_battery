@@ -7,7 +7,7 @@ batDir="$pwrDir/BAT0"
 capacityFile="$pwrDir/BAT0/capacity"
 chargingFile="$pwrDir/AC0/online"
 
-#[ -d "$batDir" ] || exit
+[ -d "$batDir" ] || exit
 
 if [ ! -f "$capacityFile" -o ! -f "$chargingFile" ]; then
     echo " BAT:?? "
@@ -18,11 +18,11 @@ fi
 batteryIcons=( "" "" "" "" "" "" "" "" "" "" )
 chargingIcon="\u202dﮣ\u202c"
 
-(( <($chargingFile) )) && charging=$(echo -e " <span rise=\"1pt\" size=\"small\">\u202dﮣ\u202c</span>")
+(( $(<$chargingFile) )) && charging=$(echo -e " <span rise=\"1pt\" size=\"small\">\u202dﮣ\u202c</span>")
 
-capacity=(( <"$capacityFile" ))
+capacity=$(( $(<$capacityFile) ))
 if [ "$capacity" -ge 95 ]; then
-    echo " <span size=\"medium\" color=\"#00ff00\">${batteryIcons[9]}</span>$charging "
+    echo " <span size=\"medium\" color=\"#98c375\">${batteryIcons[9]}</span>$charging "
 else
     if [ "$capacity" -gt 40 ]; then
         echo " <span size=\"medium\">${batteryIcons[((capacity/10))]}</span>$charging "

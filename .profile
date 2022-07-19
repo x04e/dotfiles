@@ -2,7 +2,8 @@
 
 # Globals
 export SHELL="zsh"
-export TERMINAL="alacritty"
+[ -d '/sys/class/power_supply/BAT0' ] && export termOpts=" -o font.size=9"
+export TERMINAL="alacritty$termOpts"
 export WEBBROWSER="chromium"
 export EDITOR="vim"
 export VISUAL=$EDITOR
@@ -41,7 +42,6 @@ export FZF_DEFAULT_OPTS="--color=16 --cycle --info=inline --reverse --border=rou
 if [ -f "/usr/share/pixmaps/backgrounds/background.png" ]; then
     feh --bg-fill /usr/share/pixmaps/backgrounds/background.png
 fi
-
 
 # Background processes
 [ -z "$(ps --no-header -C 'mpd')" ] && mpd --no-daemon &
