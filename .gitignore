@@ -8,6 +8,7 @@
 !.config/git
 !.config/nvim/
 !.config/nvim/*
+!.config/mpd/
 .config/nvim/autoload/
 .config/nvim/plugged/
 .config/nvim/spell/
