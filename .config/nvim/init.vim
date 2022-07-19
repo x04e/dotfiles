@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'chrisbra/colorizer'
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
@@ -39,7 +40,6 @@ set listchars=tab:──›,trail:·,lead:·,conceal:?
 set splitbelow splitright
 set tildeop
 set history=100
-set autowrite
 set shortmess+=c
 set colorcolumn=80
 set signcolumn=yes
