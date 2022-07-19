@@ -14,39 +14,10 @@ border_right=0
 command=sleep 5 && i3-msg bar hidden_state toggle > /dev/null
 interval=once
 
-#-------------#
 
-#[vpn_app]
-#full_text=" <span size=\"x-large\">旅</span> "
-#command=[[ -z "${BLOCK_BUTTON}" ]] || pia-client
-#markup=pango
-#interval=once
-
-[separator]
-full_text=
-
-#-------------#
-[bat2]
-full_text= <span rise="-5pt" size="250%"></span> <span rise="6pt" size="small">‭ﮣ‬</span> 
-#full_text= <span size="medium"></span> <span rise="1pt" size="small">‭ﮣ‬</span> 
-markup=pango
-
-[separator]
-full_text=
-
-[bat2]
-#full_text= <span size="xx-large"></span> <span rise="6pt" size="small">‭ﮣ‬</span> 
-full_text= <span size="medium"></span> <span rise="1pt" size="small">‭ﮣ‬</span> 
-markup=pango
-
-#-------------#
-
-[separator]
-full_text=
 
 ## System Information (volume, CPU/MEM usage, temperature)
 [packages_icon]
-full_text=" <span size=\"x-large\"></span> "
 command=[[ -z "${BLOCK_BUTTON}" ]] || ~/scripts/i3blocks/i3b_updates 2>&1 > /dev/null
 markup=pango
 interval=once
