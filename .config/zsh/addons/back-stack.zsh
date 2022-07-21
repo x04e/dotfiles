@@ -9,8 +9,12 @@ _VJL_STACK=( $(pwd) )
 _VJL_BRANCH_STRAT='insert'
 _VJL_DEBUG=0
 
+is_sharehistory_set(){
+    setopt | grep "sharehistory" 2>&1 > /dev/null
+}
+
 # Add the back stack history to the stack if SHARE_HISTORY is set
-if [[ -o sharehistory ]]; then
+if is_sharehistory_set; then
     if [ -f $_VJL_HISTFILE ]; then
         IFS=$'\n'
         _VJL_STACK+=( $(cat $_VJL_HISTFILE) )
@@ -51,7 +55,7 @@ chpwd () {
     fi
 
     # Update the history file (only up to 100 entries)
-    if [ $options[sharehistory] = 'on' ]; then
+    if is_sharehistory_set; then
         printf "%s\n" "${_VJL_STACK[@]}" | head -n 20 > "$_VJL_HISTFILE"
     fi
 
